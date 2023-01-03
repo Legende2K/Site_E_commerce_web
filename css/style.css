@@ -34,24 +34,24 @@ header input {
     width: 300px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+
+#search_bar2 {
+    position: relative;
 }
 
 .resultBox{
+    position: absolute;
     max-height: 280px;
-    flex-direction: column;
-    justify-content: left;
     width: 100%;
 }
 
 .resultBox li{
-  display: none;
+  display: block;
   width: 100%;
   background-color: white;
   padding: 10px 0px;
-}
-
-#search_bar.active .resultBox li{
-  display: block;
 }
 
 .resultBox li:hover{
@@ -61,9 +61,4 @@ header input {
 header i {
     font-size: 25px;
     color: black;
-}
-
-section {
-    height: 100vh;
-    background-color: blue;
 }
