@@ -11,12 +11,12 @@ header {
     background-color: burlywood;
 }
 
-header div {
+#icons, #accueil {
     display: flex;
     flex-direction: row;
-    gap: 20px;
     align-items: center;
     margin-right: 50px;
+    gap: 20px;
 }
 
 
@@ -32,9 +32,38 @@ header input {
 
 #search_bar {
     width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.resultBox{
+    max-height: 280px;
+    flex-direction: column;
+    justify-content: left;
+    width: 100%;
+}
+
+.resultBox li{
+  display: none;
+  width: 100%;
+  background-color: white;
+  padding: 10px 0px;
+}
+
+#search_bar.active .resultBox li{
+  display: block;
+}
+
+.resultBox li:hover{
+  background: #efefef;
 }
 
 header i {
     font-size: 25px;
     color: black;
+}
+
+section {
+    height: 100vh;
+    background-color: blue;
 }
