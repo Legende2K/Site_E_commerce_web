@@ -16,7 +16,7 @@ header {
     flex-direction: row;
     align-items: center;
     margin-right: 50px;
-    gap: 20px;
+    gap: 30px;
 }
 
 
@@ -37,7 +37,7 @@ header input {
     justify-content: center;
 }
 
-#search_bar2 {
+.dropdown {
     position: relative;
 }
 
@@ -61,4 +61,27 @@ header input {
 header i {
     font-size: 25px;
     color: black;
+    cursor: pointer;
+}
+
+#trolley_items {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.trolley_item {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.trolley_item img {
+    max-width: 50px;
+    max-height: 50px;
 }
