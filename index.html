@@ -1,61 +1,58 @@
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/all.css">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="script.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/all.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="script.js" async></script>
     <title>Kittools</title>
-</head>
-<body>
+  </head>
+  <body>
     <section class="top-page">
-        <header class="header">
-            <nav class="nav">
-                <li><a href="index.html">Accueil</a></li>
-            </nav>
-        </header>
-        <div class="landing-page">
-            <h1 class="big-title">Nos meilleurs ventes</h1>
-        </div>
+      <header class="header">
+        <nav class="nav">
+          <li><a href="index.html">Accueil</a></li>
+        </nav>
+      </header>
+      
         <div id="carousel">
+          <div class="hideLeft">
+            <img src="images\casseroles.jpg" />
+          </div>
 
-            <div class="hideLeft">
-             <img src="images\casseroles.jpg">
-           </div>
-     
-           <div class="prevLeftSecond">
-             <img src="images\ustenciles_silicone.png">
-           </div>
-     
-           <div class="prev">
-             <img src="images\ustencils_bois.jpg">
-           </div>
-     
-           <div class="selected">
-             <img src="images\ustencils_metal.jpg">
-           </div>
-     
-           <div class="next">
-             <img src="images\poeles.jpg">
-           </div>
-     
-           <div class="nextRightSecond">
-             <img src="images\ustenciles_or.png">
-           </div>
-     
-           <div class="hideRight">
-             <img src="images\tiroirs.png">
-           </div>
-     
-         </div>
-     
-         <div class="buttons">
-           <button id="prev">Prev</button>
-           <button id="next">Next</button>
-         </div>
+          <div class="prevLeftSecond">
+            <img src="images\ustenciles_silicone.png" />
+          </div>
 
+          <div class="prev">
+            <img src="images\ustencils_bois.jpg" />
+          </div>
+
+          <div class="selected">
+            <img src="images\ustencils_metal.jpg" />
+          </div>
+
+          <div class="next">
+            <img src="images\tiroirs.png" />
+          </div>
+
+          <div class="nextRightSecond">
+            <img src="images\ustenciles_or.png" />
+          </div>
+
+          <div class="hideRight">
+            <img src="images\poeles.jpg" />
+          </div>
+        </div>
+        <div id="chevrons_position">
+            <div class="chevrons">
+                <i id="prev" class="fa-solid fa-chevron-left"></i>
+                <i id="next" class="fa-solid fa-chevron-right"></i>
+            </div>
+        </div>
     </section>
-</body>
+  </body>
 </html>
