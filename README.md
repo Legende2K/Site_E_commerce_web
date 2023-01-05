@@ -3,6 +3,9 @@
 ## Authors
 
 Basile LEBAUDY
+
 Louis LEGENDRE
+
 Nathan LAFROGNE
+
 Maxence LE DU
