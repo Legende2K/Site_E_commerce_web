@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <script src="script.js" async></script>
+    <script src="js\carousel.js" async></script>
     <title>Kittools</title>
   </head>
   <body>
