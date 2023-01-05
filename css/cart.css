@@ -1,0 +1,46 @@
+#articles {
+    display: grid;
+    grid-gap: 30px;
+    padding: 30px;
+    align-items: center;
+}
+
+.article {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    gap: 30px;
+    padding: 30px;
+    width: min-content;
+}
+
+.article img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.qte_article {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.qte_article_nb {
+    display: flex;
+    gap: 10px;
+}
+
+.article i {
+    cursor: pointer;
+}
+
+.total_price {
+    width: max-content;
+}
+
+#paiement {
+    display: flex;
+    align-items: right;
+}
