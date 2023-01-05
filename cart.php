@@ -3,9 +3,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panier</title>
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <title>Panier - Site E-Commerce</title>
 </head>
 <body>
-    
+    <?php include "php/components/header.php"; ?>
+    <section>
+        <div id="articles">
+
+        </div>
+        <div id="paiement">
+            <p>Accéder au paiement</p>
+        </div>
+    </section>
+    <script src="js/cart.js"></script>
 </body>
 </html>
