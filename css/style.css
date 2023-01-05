@@ -7,18 +7,124 @@ body {
   margin: 0 auto;
 }
 
-/* page d'accueil (landing page) */
-
-.landing-page {
-  position: relative;
-  padding: 20px 50px;
+header {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: burlywood;
 }
 
-.big-title {
-  color: black;
-  font-size: 50px;
-  font-weight: 100;
-  width: 60%;
+#icons, #accueil {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 50px;
+    gap: 30px;
+}
+
+
+header img {
+    height: 100%;
+}
+
+header input {
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+#search_bar {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.resultBox{
+    position: absolute;
+    max-height: 280px;
+    width: 100%;
+}
+
+.resultBox li{
+  display: block;
+  width: 100%;
+  background-color: white;
+  padding: 10px 0px;
+}
+
+.resultBox li:hover{
+  background: #efefef;
+}
+
+header i {
+    font-size: 25px;
+    color: black;
+    cursor: pointer;
+}
+
+#cart_items {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 20px;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+.cart_item {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.qte_item {
+    width: max-content;
+    font-size: 13;
+    border: 1px solid black;
+}
+
+.cart_item img {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+#pay_button {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    justify-content: right;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+#pay_button i {
+    font-size: 17px;
+}
+
+#cart_count {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    padding: 3px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: orange;
+    color: white;
 }
 
 /* Carousel */
@@ -118,4 +224,7 @@ body {
 .chevrons i{
     font-size: 60px;
     color:rgb(235, 127, 25);
+    padding: 0;
+    margin: 0;
 }
+

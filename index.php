@@ -11,13 +11,7 @@
     <title>Kittools</title>
   </head>
   <body>
-    <section class="top-page">
-      <header class="header">
-        <nav class="nav">
-          <li><a href="index.html">Accueil</a></li>
-        </nav>
-      </header>
-      
+  <?php include "php/components/header.php"; ?>
         <div id="carousel">
           <div class="hideLeft">
             <img src="images\casseroles.jpg" />
@@ -53,6 +47,5 @@
                 <i id="next" class="fa-solid fa-chevron-right"></i>
             </div>
         </div>
-    </section>
   </body>
 </html>
