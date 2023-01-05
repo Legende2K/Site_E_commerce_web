@@ -90,5 +90,5 @@ document.addEventListener("click", function (event) {
 });
 
 function goToCart() {
-    window.location.href = "cart.html";
+    window.location.href = "cart.php";
 }
