@@ -23,6 +23,14 @@ input.onkeyup = (e)=>{
     resultBox.innerHTML = emptyArray.join('');
 }
 
+input.addEventListener("focusin", (event) => {
+    resultBox.style.display = "block";
+});
+
+input.addEventListener("focusout", (event) => {
+    resultBox.style.display = "none";
+});
+
 
 //A enlever plus tard
 localStorage.setItem('items', ['Item_1', 'Item_2', 'Item_3']);
@@ -40,12 +48,18 @@ function showCart() {
             html.push(
                 "<li class='cart_item' id='" + items[i] + "'>" + 
                     "<img src='images/logo.jpg'>" +
-                    "<p>" + items[i] + "<br>10,99€</p>" +
-                    "<p style='width: max-content'>Qte : 2</p>" +
+                    "<p>" + items[i].toUpperCase() + "<br><span style='font-size: 12'>10,99€</span></p>" +
+                    "<p class='qte_item'>Qte : 2</p>" +
                     "<i class='fa-solid fa-xmark' onclick='deleteItem(\"" + items[i] + "\")'></i>" +
                 "</li>"
             );
         }
+        html.push(
+            "<div id='pay_button' onclick='goToCart()'>" +
+            "<p>Payez</p>" +
+            "<i class='fa-solid fa-arrow-right'></i>" +
+            "</div>"
+        )
         document.querySelector("#cart_items").innerHTML = html.join("");
         document.querySelector("#cart_items").style.display = document.querySelector("#cart_items").style.display == "block" ? "none" : "block";
     }
@@ -74,3 +88,7 @@ document.addEventListener("click", function (event) {
     }
     continueToShowDropdown = false;
 });
+
+function goToCart() {
+    window.location.href = "cart.html";
+}
