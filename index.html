@@ -15,7 +15,7 @@
             <p>Accueil</p>
         </div>
         <div id="search_bar">
-            <div id="search_bar2">
+            <div class="dropdown">
                 <input type="search"  placeholder="Rechercher" autocomplete="on">
                 <div class="resultBox">
                     <!-- here list are inserted from javascript -->
@@ -23,7 +23,15 @@
             </div>
         </div>
         <div id="icons">
-            <i class="fa-solid fa-bag-shopping"></i>
+            <div class="dropdown" id="dropdown_cart">
+                <div id="cart_icon">
+                    <i class="fa-solid fa-cart-shopping" onclick="showCart()"></i>
+                    <p id="cart_count">3</p>
+                </div>
+                <ul id="cart_items">
+                    <!-- Items du Panier -->
+                </ul>
+            </div>
             <i class="fa-solid fa-user"></i>
         </div>
     </header>
