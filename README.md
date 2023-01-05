@@ -1,6 +1,7 @@
 # Site_E_Commerce_web
 
-##Authors
+## Authors
+
 Basile LEBAUDY
 Louis LEGENDRE
 Nathan LAFROGNE
