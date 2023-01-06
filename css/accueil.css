@@ -1,0 +1,116 @@
+#trois_parties{
+    display: flex;
+    flex-direction: row;
+}
+
+#partie_gauche{
+    width: 15%;
+    background-color: burlywood;
+}
+
+#partie_droite{
+    width: 15%;
+    background-color: burlywood;
+}
+
+/* Carousel */
+
+#carousel {
+    height: 400px;
+    top: 50%;
+    overflow: hidden;
+    width:70%;
+    background-image: url("../images/fond-bois.png");
+  }
+  
+  #carousel div {
+    position: absolute;
+    transition: transform 1s, left 1s, opacity 1s, z-index 0s;
+    opacity: 1;
+    height: 400px;
+    display: flex;
+    align-items: center;
+  }
+  
+  #carousel img {
+    width: 400px;
+    transition: width 1s;
+  }
+  
+  #carousel div.hideLeft {
+    left: 10%;
+    opacity: 0;
+    transform: translateY(20%) translateX(-50%);
+  }
+  #carousel div.hideLeft img {
+    width: 200px;
+  }
+  #carousel div.hideRight {
+    left: 90%;
+    opacity: 0;
+    transform: translateY(20%) translateX(-50%);
+  }
+  #carousel div.hideRight img {
+    width: 200px;
+  }
+  #carousel div.prev {
+    z-index: 5;
+    left: 35%;
+    transform: translateY(5%) translateX(-50%);
+  }
+  #carousel div.prev img {
+    width: 300px;
+  }
+  #carousel div.prevLeftSecond {
+    z-index: 4;
+    left: 22.5%;
+    transform: translateY(10%) translateX(-50%);
+    opacity: 1;
+  }
+  #carousel div.prevLeftSecond img {
+    width: 200px;
+  }
+  #carousel div.selected {
+    z-index: 10;
+    left: 50%;
+    transform: translateY(0px) translateX(-50%);
+  }
+  #carousel div.next {
+    z-index: 5;
+    left: 65%;
+    transform: translateY(5%) translateX(-50%);
+  }
+  #carousel div.next img {
+    width: 300px;
+  }
+  #carousel div.nextRightSecond {
+    z-index: 4;
+    left: 77.5%;
+    transform: translateY(10%) translateX(-50%);
+    opacity: 1;
+  }
+  #carousel div.nextRightSecond img {
+    width: 200px;
+  }
+  
+  #chevrons_position{
+      position: relative
+  }
+  
+  .chevrons{
+      position: absolute;
+      top: 50%; left: 50%; 
+      gap:450px;
+      opacity: 0.9;
+      display: flex;
+      justify-content: center;
+      z-index: 15;
+      transform: translateY(-350%) translateX(-50%);
+  }
+  
+  .chevrons i{
+      font-size: 60px;
+      color:rgb(235, 127, 25);
+      padding: 0;
+      margin: 0;
+  }
