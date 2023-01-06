@@ -1,7 +1,8 @@
 <header>
     <div id="accueil">
-        <img src="images/logo.jpg">
-        <p>Accueil</p>
+        <!-- <img src="images/logo.jpg"> -->
+        <h1>Kittools</h1>
+        <h4>Le meilleur équipement pour votre cuisine</h>
     </div>
     <div id="search_bar">
         <div class="dropdown">

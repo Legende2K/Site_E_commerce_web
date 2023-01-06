@@ -1,0 +1,37 @@
+footer{
+    background-color: #663906;
+    color: white;
+}
+
+#palette_footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 150px;
+    padding-left: 150px;
+}
+
+#credits{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 10px;
+    background-color: #70420e;
+}
+
+#icons_reseaux{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
+footer h3{
+    font-family: Papyrus;
+    margin-bottom: 10px;
+}
+
+footer h5{
+    font-family: Papyrus;
+}
+
