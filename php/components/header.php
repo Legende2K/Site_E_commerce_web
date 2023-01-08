@@ -1,6 +1,6 @@
 <header>
     <div id="accueil">
-        <img src="images/logo.jpg">
+        <img src="../images/logo.jpg">
         <p>Accueil</p>
     </div>
     <div id="search_bar">
@@ -23,5 +23,5 @@
         </div>
         <i class="fa-solid fa-user"></i>
     </div>
-    <script src="js/header.js"></script>
+    <script src="../js/header.js"></script>
 </header>

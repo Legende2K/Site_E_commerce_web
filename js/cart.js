@@ -1,5 +1,7 @@
+const items = localStorage.getItem("items").split(',');
+let actualPage = 1;
+
 function showItems() {
-    const items = localStorage.getItem("items").split(',');
     const articles = document.querySelector("#articles");
 
     if (items.length === 0 || (items.length === 1 && items[0] == '')) {
@@ -10,7 +12,7 @@ function showItems() {
             html.push(
                 "<div style= 'display: flex; justify-content: center;grid-column:" + (i%2 + 1) + "; grid-row:" + (Math.floor(i/2) + 1) + ";'>" +
                     "<li class='article' id='" + items[i] + "'>" + 
-                        "<img src='images/logo.jpg'>" +
+                        "<img src='../images/logo.jpg'>" +
                         "<p>" + items[i].toUpperCase() + "<br>10,99€</p>" +
                         "<div class='qte_article'>" +
                             "<p>Quantité:</p>" +
@@ -44,6 +46,8 @@ function plus(item) {
     qte.innerHTML = parseInt(qte.innerHTML) + 1;
     const total_price = document.querySelector("#" + item + " .total_price");
     total_price.innerHTML = "Prix total:<br>" + (parseInt(qte.innerHTML)*10.99) + "€";
+    const total_price_items = document.querySelector("#total_price_items");
+    total_price_items.innerHTML = "<p>Total : " + total_price + " €</p>";
 }
 
 function deleteItem(item) {
@@ -54,6 +58,10 @@ function deleteItem(item) {
     }
     localStorage.setItem("items", items);
     showItems();
+}
+
+function goToPaiement() {
+    window.location.href = "delivery.php";
 }
 
 showItems();
