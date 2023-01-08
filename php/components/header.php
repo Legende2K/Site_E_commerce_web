@@ -1,6 +1,5 @@
 <header>
     <div id="accueil">
-        <!-- <img src="images/logo.jpg"> -->
         <h1>Kittools</h1>
         <h4>Le meilleur équipement pour votre cuisine</h>
     </div>
@@ -24,5 +23,5 @@
         </div>
         <i class="fa-solid fa-user"></i>
     </div>
-    <script src="js/header.js"></script>
+    <script src="../js/header.js"></script>
 </header>

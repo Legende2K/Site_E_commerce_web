@@ -47,7 +47,7 @@ function showCart() {
         for (let i = 0 ; i < items.length ; i++) {
             html.push(
                 "<li class='cart_item' id='" + items[i] + "'>" + 
-                    "<img src='images/logo.jpg'>" +
+                    "<img src='../images/logo.jpg'>" +
                     "<p>" + items[i].toUpperCase() + "<br><span style='font-size: 12'>10,99€</span></p>" +
                     "<p class='qte_item'>Qte : 2</p>" +
                     "<i class='fa-solid fa-xmark' onclick='deleteItem(\"" + items[i] + "\")'></i>" +
@@ -90,5 +90,5 @@ document.addEventListener("click", function (event) {
 });
 
 function goToCart() {
-    window.location.href = "cart.php";
+    window.location.href = "../paiement/cart.php";
 }

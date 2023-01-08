@@ -57,6 +57,7 @@ header input {
 
 .dropdown {
     position: relative;
+    z-index: 1000;
 }
 
 .resultBox{
