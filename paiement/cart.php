@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/all.css">
     <link rel="stylesheet" href="../css/all.min.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/cart.css">
     <title>Panier - Site E-Commerce</title>
 </head>
@@ -32,7 +33,7 @@
             </div>
         </div>
 
-        
+
         <div id="articles">
             <!-- recap des articles -->
         </div>
@@ -42,7 +43,8 @@
         <div id="paiement" onclick="goToPaiement()">
             <p>Passez la commande</p>
         </div>
-</main>
+    </main>
+    <?php include "../php/components/footer.php"; ?>
     <script src="../js/cart.js"></script>
 </body>
 

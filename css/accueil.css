@@ -3,13 +3,9 @@
     flex-direction: row;
 }
 
-#partie_gauche{
+#partie_gauche, #partie_droite{
     width: 15%;
-    background-color:#804707;
-}
-
-#partie_droite{
-    width: 15%;
+    height: 400px;
     background-color:#804707;
 }
 
@@ -30,6 +26,7 @@
     height: 400px;
     display: flex;
     align-items: center;
+    cursor: pointer;
   }
   
   #carousel img {
@@ -114,3 +111,7 @@
       padding: 0;
       margin: 0;
   }
+
+#prev, #next {
+  cursor: pointer;
+}
