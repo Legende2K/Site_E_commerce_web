@@ -1,3 +1,5 @@
+@import url('//fonts.googleapis.com/css?family=Mrs+Sheppards');
+
 * {
   font-family: "Montserrat";
   padding: 0;
@@ -105,6 +107,7 @@ header i {
 }
 
 .qte_item {
+    padding: 3px;
     width: max-content;
     font-size: 13;
     border: 1px solid black;

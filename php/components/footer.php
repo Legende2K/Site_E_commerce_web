@@ -15,8 +15,8 @@
         <div id="section_3">
             <h3>Nos Réseaux</h3>
             <div id="icons_reseaux">
-                <i class="gg-instagram"></i>
-                <i class="gg-facebook"></i>
+                <i class="fa-brands fa-instagram" onclick="goToInstagram()"></i>
+                <i class="fa-brands fa-facebook" onclick="goToFacebook()"></i>
             </div>
         </div>
     </div>
@@ -24,10 +24,4 @@
         <h5>Site réalisé par le groupe 5</h5>
     </div>
 </footer>
-<script>
-  const main = document.querySelector("main");
-  const footer = document.querySelector("footer");
-  const header = document.querySelector("header");
-
-  main.style.minHeight = "calc(100% - " + (header.offsetHeight + footer.offsetHeight) + "px)";
-</script>
+<script src="../js/footer.js"></script>
