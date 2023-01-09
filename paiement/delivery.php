@@ -37,7 +37,7 @@
             <p>Veuillez fournir les informations ci-dessous pour que nous puissions livrer votre commande :</p>
             <label for="name">Nom et prénom du destinataire :</label>
             <input type="text" id="name" name="name">
-            <label for="address1">Adresse * : <span>Ex: 7 rue des Fleurs</span></label>
+            <label for="address1">Adresse : <span>Ex: 7 rue des Fleurs</span></label>
             <input type="text" id="address1" name="address1">
             <label for="address2">Adresse : <span>N° appartement, étage, résidence</span></label>
             <input type="text" id="address2" name="address2">
@@ -55,10 +55,8 @@
             <input type="text" id="state" name="state">
             <label for="country">Pays :</label>
             <input type="text" id="country" name="country">
-            <label for="phone">Numéro de téléphone :</label>
-            <input type="text" id="phone" name="phone">
             <div id="submit_button">
-                <input type="submit" value="Envoyer">
+                <input type="button" onclick="validateForm()" value="Payer">
             </div>
         </form>
     </main>

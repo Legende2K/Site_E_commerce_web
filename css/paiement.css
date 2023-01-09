@@ -18,7 +18,7 @@ main {
     height: 100%;
     background-color: burlywood;
     border-radius: 10px;
-    width: 50%;
+    width: 78%;
 }
 
 #steps {
@@ -66,22 +66,8 @@ form p {
   
 label {
     display: block;
+    margin-bottom: 8px;
     font-weight: bold;
-}
-
-label span {
-    font-weight: normal;
-    font-size: 12px;
-    color: gray;
-}
-
-#ville_zip {
-    display: flex;
-    gap: 10px;
-}
-
-#ville_zip div:last-child {
-    width: 100%;
 }
   
 input[type="text"] {
@@ -103,7 +89,7 @@ input[type="button"] {
     border-radius: 4px;
     cursor: pointer;
 } 
-
+  
 input[type="button"]:hover {
     background-color: rgb(185, 153, 112);
 }
@@ -115,4 +101,4 @@ input[type="button"]:hover {
   
 .error {
     border: 1px solid red !important;
-}  
+}

@@ -1,6 +1,6 @@
 <header>
     <div id="accueil">
-        <h1>Kittools</h1>
+        <h1 onclick="goToAccueil()">Kittools</h1>
         <h4>Le meilleur équipement pour votre cuisine</h>
     </div>
     <div id="search_bar">

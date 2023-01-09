@@ -92,3 +92,7 @@ document.addEventListener("click", function (event) {
 function goToCart() {
     window.location.href = "../paiement/cart.php";
 }
+
+function goToAccueil() {
+    window.location.href = "../index.php";
+}

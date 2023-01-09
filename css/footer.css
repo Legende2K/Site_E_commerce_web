@@ -3,6 +3,14 @@ footer{
     color: white;
 }
 
+main {
+    background-color: #804707;
+}
+
+p {
+    color: white;
+}
+
 #palette_footer{
     display: flex;
     flex-direction: row;
@@ -29,9 +37,11 @@ footer{
 footer h3{
     font-family: Papyrus;
     margin-bottom: 10px;
+    margin-top: 5px;
 }
 
 footer h5{
     font-family: Papyrus;
+    margin: 15px;
 }
 
