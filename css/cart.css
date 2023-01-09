@@ -112,12 +112,13 @@ main {
     align-items: right;
     justify-content: right;
     width: 100%;
+    margin-bottom: 30px;
 }
 
 #paiement p {
     background-color: burlywood;
     padding: 10px;
-    margin-right: 100px;
+    margin-right: 150px;
     border-radius: 5px;
     cursor: pointer;
 }

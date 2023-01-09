@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="../css/all.css">
     <link rel="stylesheet" href="../css/all.min.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/delivery.css">
-    <title>Livraison - Site E-Commerce</title>
+    <title>Livraison - Kittools</title>
 </head>
 
 <body>
@@ -39,7 +40,7 @@
             <input type="text" id="name" name="name">
             <label for="address1">Adresse : <span>Ex: 7 rue des Fleurs</span></label>
             <input type="text" id="address1" name="address1">
-            <label for="address2">Adresse : <span>N° appartement, étage, résidence</span></label>
+            <label for="address2">Complément d'adresse : <span>N° appartement, étage, résidence</span></label>
             <input type="text" id="address2" name="address2">
             <div id="ville_zip">
                 <div>
@@ -60,6 +61,7 @@
             </div>
         </form>
     </main>
+    <?php include "../php/components/footer.php"; ?>
 </body>
 <script src="../js/delivery.js"></script>
 

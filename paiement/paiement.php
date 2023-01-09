@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/all.css">
     <link rel="stylesheet" href="../css/all.min.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/paiement.css">
     <title>Paiement - Site E-Commerce</title>
 </head>
@@ -48,6 +49,7 @@
             </div>
         </form>
     </main>
+    <?php include "../php/components/footer.php"; ?>
 </body>
 <script src="../js/paiement.js"></script>
 

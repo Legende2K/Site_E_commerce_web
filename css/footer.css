@@ -7,7 +7,7 @@ main {
     background-color: #804707;
 }
 
-p {
+p, label {
     color: white;
 }
 
@@ -32,6 +32,11 @@ p {
     flex-direction: row;
     justify-content: space-between;
     padding-right: 20px;
+}
+
+#icons_reseaux i {
+    font-size: 30px;
+    cursor: pointer;
 }
 
 footer h3{

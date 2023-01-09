@@ -4,14 +4,11 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Mrs+Sheppards" />
   <link rel="stylesheet" href="css/all.css" />
   <link rel="stylesheet" href="css/all.min.css" />
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/accueil.css">
   <link rel="stylesheet" href="css/footer.css">
-  <link rel='stylesheet' href="https://css.gg/instagram.css">
-  <link rel='stylesheet' href="https://css.gg/facebook.css">
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
   <script src="js\carousel.js" async></script>
   <title>Kittools</title>
