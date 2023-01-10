@@ -21,7 +21,7 @@
                 <!-- Items du Panier -->
             </ul>
         </div>
-        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-user" onclick="showProfil()"></i>
     </div>
     <script src="../js/header.js"></script>
 </header>

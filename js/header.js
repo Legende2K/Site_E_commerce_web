@@ -96,3 +96,13 @@ function goToCart() {
 function goToAccueil() {
     window.location.href = "../index.php";
 }
+
+function showProfil() {
+    const connected = window.localStorage.getItem("connected");
+    console.log(connected);
+    if (connected) {
+
+    } else {
+        window.location.href = "../login.php";
+    }
+}
