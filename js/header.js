@@ -83,8 +83,11 @@ function deleteItem(item) {
 }
 
 document.addEventListener("click", function (event) {
-    if (!document.querySelector("#icons").contains(event.target) && !continueToShowDropdown) {
+    if (!document.querySelector("#dropdown_cart").contains(event.target)) {
         document.querySelector("#cart_items").style.display = "none";
+    }
+    if (!document.querySelector("#dropdown_profil").contains(event.target)) {
+        document.querySelector("#profil_content").style.display = "none";
     }
     continueToShowDropdown = false;
 });
@@ -95,4 +98,13 @@ function goToCart() {
 
 function goToAccueil() {
     window.location.href = "../index.php";
+}
+
+function showProfil() {
+    const connected = window.localStorage.getItem("connected");
+    if (connected) {
+        window.location.href = "../profil.php";
+    } else {
+        window.location.href = "../login.php";
+    }
 }

@@ -8,8 +8,8 @@
         </div>
         <div id="section_2">
             <h3>Accès Client</h3>
-            <h5>Compte</h5>
-            <h5>Panier</h5>
+            <h5 onclick="goToLogin()">Compte</h5>
+            <h5 onclick="goToCart()">Panier</h5>
             <h5>Contact</h5>
         </div>
         <div id="section_3">

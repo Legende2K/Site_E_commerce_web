@@ -1,9 +1,9 @@
 @import url('//fonts.googleapis.com/css?family=Mrs+Sheppards');
 
 * {
-  font-family: "Montserrat";
-  padding: 0;
-  margin: 0;
+    font-family: "Montserrat";
+    padding: 0;
+    margin: 0;
 }
 
 header {
@@ -12,14 +12,18 @@ header {
     flex-direction: row;
     justify-content: space-between;
     background-color: burlywood;
-    cursor: pointer;
 }
 
 header p {
     color: black;
 }
 
-#icons, #accueil {
+input:focus-visible {
+    outline: none;
+}
+
+#icons,
+#accueil {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -30,19 +34,24 @@ header p {
 
 header img {
     height: 100%;
-    font-size: 60px; 
+    font-size: 60px;
 }
 
-header h1{
-  font-family: "Mrs Sheppards";
-  font-size: 40px;
-  color: #663906;
-  padding-left: 20px;
+header h1 {
+    font-family: "Mrs Sheppards";
+    font-size: 40px;
+    color: #663906;
+    padding-left: 20px;
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 }
 
-header h4{
-  font-family: Papyrus;
-  color: rgb(53, 33, 33);
+header h4 {
+    font-family: Papyrus;
+    color: rgb(53, 33, 33);
 }
 
 header input {
@@ -64,21 +73,22 @@ header input {
     z-index: 1000;
 }
 
-.resultBox{
+.resultBox {
     position: absolute;
     max-height: 280px;
     width: 100%;
+    z-index: 10000000000000000000;
 }
 
-.resultBox li{
-  display: block;
-  width: 100%;
-  background-color: white;
-  padding: 10px 0px;
+.resultBox li {
+    display: block;
+    width: 100%;
+    background-color: white;
+    padding: 10px 0px;
 }
 
-.resultBox li:hover{
-  background: #efefef;
+.resultBox li:hover {
+    background: #efefef;
 }
 
 header i {
@@ -146,6 +156,3 @@ header i {
     background-color: orange;
     color: white;
 }
-
-
-

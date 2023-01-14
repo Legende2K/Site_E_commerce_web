@@ -11,3 +11,16 @@ function goToInstagram() {
 function goToFacebook() {
     window.open("https://www.facebook.com/");
 }
+
+function goToLogin() {
+    const connected = window.localStorage.getItem("connected");
+    if (connected) {
+        window.location.href = "../profil.php";
+    } else {
+        window.location.href = "../login.php";
+    }
+}
+
+function goToCart() {
+    window.location.href = "../paiement/cart.php";
+}
