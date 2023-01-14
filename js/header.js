@@ -86,9 +86,6 @@ document.addEventListener("click", function (event) {
     if (!document.querySelector("#dropdown_cart").contains(event.target)) {
         document.querySelector("#cart_items").style.display = "none";
     }
-    if (!document.querySelector("#dropdown_profil").contains(event.target)) {
-        document.querySelector("#profil_content").style.display = "none";
-    }
     continueToShowDropdown = false;
 });
 

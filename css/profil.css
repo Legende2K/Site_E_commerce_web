@@ -1,0 +1,96 @@
+#title {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    padding: 30px;
+    font-weight: bold;
+}
+
+#main_container {
+    min-height: fit-content;
+    display: flex;
+}
+
+summary {
+    width: 25%;
+    min-height: 100%;
+    display: flex;
+    justify-content: end;
+    padding-right: 40px;
+}
+summary div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+main i {
+    color: white;
+}
+
+.part {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.part p {
+    font-size: 18px;
+}
+
+.active {
+    background-color: rgb(222, 184, 135, 0.5);
+}
+
+.part:hover {
+    background-color: rgb(222, 184, 135, 0.5);
+}
+
+#main_content {
+    background-color: burlywood;
+    flex: 5;
+    width: 75%;
+    min-height: 100%;
+    margin-bottom: 30px;
+    margin-right: 30px;
+    border-radius: 8px;
+}
+
+.container {
+    padding: 20px;
+}
+
+#main_content p, #main_content label {
+    color: black;
+}
+
+.subtitle {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#profil_container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#identity_container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.input_label {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.input_label input {
+    padding: 5px;
+}
