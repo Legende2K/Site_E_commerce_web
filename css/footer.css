@@ -48,5 +48,12 @@ footer h3{
 footer h5{
     font-family: Papyrus;
     margin: 15px;
+    cursor: pointer;
+}
+
+footer h5:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.5px;
 }
 

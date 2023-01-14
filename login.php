@@ -22,10 +22,10 @@
             <div class="card-body">
                 <form>
                     <label for="email">Adresse email</label>
-                    <input type="text"id="email" name="email" required>
+                    <input type="text" id="email" name="email" required>
                     <label for="password">Mot de passe</label>
                     <input type="password" id="password" name="password" required>
-                    <input type="submit" value="Connexion">
+                    <input type="submit" value="Connexion" onclick="window.localStorage.setItem('connected', true)">
                     <input type="button" value="S'inscrire" onclick="window.location.href = '../register.php';">
                 </form>
             </div>

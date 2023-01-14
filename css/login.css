@@ -66,6 +66,7 @@ main {
 }
 
 /* Style du bouton de connexion lorsque le curseur est dessus */
-.login-card input[type="submit"]:hover {
+.login-card input[type="submit"]:hover,
+.login-card input[type="button"]:hover {
     background-color: #955308;
 }
