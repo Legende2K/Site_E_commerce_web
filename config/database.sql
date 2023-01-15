@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 15 jan. 2023 à 13:58
+-- Généré le : dim. 15 jan. 2023 à 14:05
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `item` (
 --
 
 INSERT INTO `item` (`ItemID`, `Name`, `SubCategoryID`, `Picture`, `Price`, `Description`, `BuyerID`, `StarRate`, `SellerID`) VALUES
-(1, 'Lot de casseroles en inox', 1, '1', 50, 'Un lot de 5 casseroles en inox neuves', NULL, NULL, NULL);
+(1, 'Lot de casseroles en inox', 1, 'casseroles.jpg', 50, 'Un lot de 5 casseroles en inox neuves', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -152,9 +152,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `Phone` int NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Password` varchar(50) NOT NULL,
-  `RankID` int NOT NULL,
-  PRIMARY KEY (`UserID`),
-  KEY `RankID` (`RankID`)
+  PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
@@ -187,12 +185,6 @@ ALTER TABLE `stock`
 --
 ALTER TABLE `subcategory`
   ADD CONSTRAINT `subcategory_ibfk_1` FOREIGN KEY (`CategoryID`) REFERENCES `category` (`CategoryID`);
-
---
--- Contraintes pour la table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`RankID`) REFERENCES `rank` (`RankID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
