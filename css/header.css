@@ -35,7 +35,6 @@ input:focus-visible {
     flex-direction: row;
     align-items: center;
     margin-right: 50px;
-    margin-left: 50px;
     gap: 30px;
 }
 
@@ -73,6 +72,7 @@ header input {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transform: translateX(-45%);
 }
 
 .dropdown {
