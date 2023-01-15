@@ -42,7 +42,7 @@ function moveToSelected(element) {
       e.preventDefault();
   });
   
-  $('#carousel div').click(function() {
+  $('#carousel div:not(.hideLeft):not(.hideRight)').click(function() {
     moveToSelected($(this));
   });
   

@@ -65,7 +65,6 @@ header input {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transform: translateX(-50%);
 }
 
 .dropdown {
