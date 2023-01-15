@@ -1,8 +1,7 @@
 <header>
-    <div class="fluid-container">
-        <div id="accueil">
+    <div id="accueil">
         <h1 onclick="goToAccueil()">Kittools</h1>
-        <h4>Le meilleur équipement pour votre cuisine</h>
+        <h4>Le meilleur équipement pour votre cuisine</h4>
     </div>
     <div id="search_bar">
         <div class="dropdown">
@@ -24,7 +23,5 @@
         </div>
         <i class="fa-solid fa-user" onclick="showProfil()"></i>
     </div>
-    </div>
-    
     <script src="../js/header.js"></script>
 </header>

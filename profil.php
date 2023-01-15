@@ -35,6 +35,10 @@
                         <i class="fa-solid fa-dollar-sign"></i>
                         <p>Mes ventes</p>
                     </div>
+                    <div id="logout_button" class="part" onclick="logout()">
+                        <i class="fa-solid fa-power-off"></i>
+                        <p>Se déconnecter</p>
+                    </div>
                 </div>
             </summary>
             <div id="main_content">

@@ -22,13 +22,6 @@ input:focus-visible {
     outline: none;
 }
 
-.fluid-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-}
-
 #icons,
 #accueil {
     display: flex;
@@ -72,7 +65,6 @@ header input {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transform: translateX(-45%);
 }
 
 .dropdown {
