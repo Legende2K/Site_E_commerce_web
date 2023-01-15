@@ -17,23 +17,24 @@ function addUser($firstName, $name, $birthDate, $address1, $address2, $postalCod
 function addItem($name, $price, $description )
   {
     require("connexion.php");
-    $req = $access->prepare("INSERT INTO produits (name, price, description) VALUES ($name, $price, $description)");
+    $sql = "INSERT INTO produits (name, price, description) VALUES ($name, $price, $description)";
 
-    $req->execute(array($name, $price, $description));
-
-    $req->closeCursor();
+    $result = $mysqli->query($sql);
+        if (!$result) {
+        exit($mysqli->error);
+        }
   }
 
   function showItem()
 {
     require("connexion.php");
-	$req=$access->prepare("SELECT * FROM item ORDER BY price ASC");
+    $sql = "SELECT * FROM item ORDER BY price ASC";
 
-    $req->execute();
-
-    $data = $req->fetchAll(PDO::FETCH_OBJ);
-
-    return $data;
-
-    $req->closeCursor();
+  $result = $mysqli->query($sql);
+  if (!$result) {
+  exit($mysqli->error);
+  }
+  
+  return($result);
 }
+?>

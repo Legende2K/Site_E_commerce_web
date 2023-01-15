@@ -5,7 +5,7 @@ ini_set("display_startup_errors", "On");
 
 $infoBdd = ["server" => "localhost",
 "login" => "root",
-"password" => "root",
+"password" => "",
 "db_name" => "database", ];
 
 $mysqli = new mysqli($infoBdd["server"], $infoBdd["login"],
@@ -14,8 +14,5 @@ $mysqli = new mysqli($infoBdd["server"], $infoBdd["login"],
 if ($mysqli->connect_errno) {
     exit("Connexion to the database failed");
 }
-
-$_DATE_TIME=date('Y-m-d H:i:s');
-
 
 ?>
