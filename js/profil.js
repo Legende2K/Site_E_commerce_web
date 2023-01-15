@@ -65,3 +65,8 @@ function showContainer(nb) {
             break;
     }
 }
+
+function logout() {
+    window.localStorage.removeItem("account_id");
+    window.location.href = "../login.php";
+}
