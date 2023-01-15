@@ -24,4 +24,4 @@
         <h5>Site réalisé par le groupe 5</h5>
     </div>
 </footer>
-<script src="../js/footer.js"></script>
+<script src="./js/footer.js"></script>
