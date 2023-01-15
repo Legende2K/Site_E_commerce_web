@@ -92,3 +92,18 @@ label {
 #zip_column_container {
     width: 30%;
 }
+
+.error_input {
+    border: 2px solid red !important;
+}
+
+.error_message {
+    display: none;
+    color: red !important;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.error_p {
+    display: block !important;
+}

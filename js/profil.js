@@ -67,6 +67,5 @@ function showContainer(nb) {
 }
 
 function logout() {
-    window.localStorage.removeItem("account_id");
-    window.location.href = "../login.php";
+    window.location.href = "../profil?logout=true";
 }

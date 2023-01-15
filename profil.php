@@ -1,5 +1,12 @@
-<html lang="en">
-
+<?php
+include('php/functions.php');
+pr($_SESSION);
+if (isset($_GET["logout"])) {
+    unset($_SESSION["compte"]);
+    header("Location: ../login.php");
+}
+?>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +18,6 @@
     <link rel="stylesheet" href="../css/profil.css">
     <title>Profil - Kittools</title>
 </head>
-
 <body>
     <?php include "php/components/header.php"; ?>
     <main>
