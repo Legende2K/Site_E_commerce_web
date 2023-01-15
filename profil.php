@@ -40,7 +40,7 @@
             <div id="main_content">
                 <div id="profil_container" class="container">
                     <p class="subtitle">Informations personnelles</p>
-                    <div id="identity_container">
+                    <div class="row_container">
                         <div id="name_container" class="input_label">
                             <label for="name">Nom</label>
                             <input type="text" id="name" value="Nom">
@@ -54,17 +54,50 @@
                         <label for="phone">Téléphone</label>
                         <input type="text" id="phone" value="Téléphone">
                     </div>
+                    <div id="save_button" class="button">
+                        <p>Enregistrer</p>
+                    </div>
+                    <div class="line"></div>
                     <p class="subtitle">Informations du compte</p>
                     <div id="email_container" class="input_label">
                         <label for="email">Email</label>
-                        <input type="text" id="email" value="Email">
+                        <input type="email" id="email" value="Email">
                     </div>
                     <div id="password_container" class="input_label">
                         <label for="password">Mot de passe</label>
-                        <input type="text" id="password" value="Mot de passe">
+                        <input type="password" id="password" value="Mot de passe" disabled>
+                    </div>
+                    <div id="change_password_button" class="button">
+                        <p>Changer de mot de passe</p>
                     </div>
                 </div>
                 <div id="address_container" class="container">
+                    <p class="subtitle">Mon adresse</p>
+                    <div id="main_address_container" class="input_label">
+                        <label for="address">Adresse</label>
+                        <input type="text" id="address" value="Adresse">
+                    </div>
+                    <div id="complementary_address_container" class="input_label">
+                        <label for="complementary_address">Complément d'adresse</label>
+                        <input type="text" id="complementary_address" value="Complément d'adresse">
+                    </div>
+                    <div class="row_container">
+                        <div id="zip_container" class="input_label">
+                            <label for="zip">Code Postal</label>
+                            <input type="text" id="zip" value="49000">
+                        </div>
+                        <div id="city_container" class="input_label">
+                            <label for="city">Ville</label>
+                            <input type="text" id="city" value="Ville">
+                        </div>
+                    </div>
+                    <div id="country_container" class="input_label">
+                        <label for="country">Pays</label>
+                        <input type="text" id="country" value="Pays">
+                    </div>
+                    <div id="save_button" class="button">
+                        <p>Enregistrer</p>
+                    </div>
                 </div>
                 <div id="orders_container" class="container">
                 </div>
