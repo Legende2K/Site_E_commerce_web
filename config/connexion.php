@@ -1,13 +1,21 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", "On");
+ini_set("display_startup_errors", "On");
 
-try {
-		$access=new pdo("mysql:host=localhost;dbname=database;charset=utf8", "root", "");
-		
-		$access->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+$infoBdd = ["server" => "localhost",
+"login" => "root",
+"password" => "root",
+"db_name" => "database", ];
 
-} catch (Exception $e) 
-{
-	$e->getMessage();
+$mysqli = new mysqli($infoBdd["server"], $infoBdd["login"],
+                        $infoBdd["password"],$infoBdd["db_name"]);
+
+if ($mysqli->connect_errno) {
+    exit("Connexion to the database failed");
 }
+
+$_DATE_TIME=date('Y-m-d H:i:s');
+
 
 ?>
