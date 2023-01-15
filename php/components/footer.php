@@ -2,15 +2,13 @@
     <div id="palette_footer">
         <div id="section_1">
             <h3>Boutique</h3>
-            <h5>Catégorie 1</h5>
-            <h5>Catégorie 2</h5>
-            <h5>Catégorie 3</h5>
+            <h5 onclick="goToAccueil()">Meilleurs ventes</h5>
+            <h5 onclick="goToAccueil()">Catégories</h5>
         </div>
         <div id="section_2">
             <h3>Accès Client</h3>
             <h5 onclick="goToLogin()">Compte</h5>
             <h5 onclick="goToCart()">Panier</h5>
-            <h5>Contact</h5>
         </div>
         <div id="section_3">
             <h3>Nos Réseaux</h3>

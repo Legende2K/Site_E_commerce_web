@@ -1,8 +1,5 @@
 <?php
-
   require("config/commandes.php");
-
-  $Produits=showItem();
 ?>
 
 
@@ -19,6 +16,7 @@
   <link rel="stylesheet" href="css/footer.css">
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
   <script src="js\carousel.js" async></script>
+  <script src="../js/category.js" async></script>
   <title>Kittools</title>
 </head>
 
@@ -27,13 +25,43 @@
   <main>
     <div id="trois_parties">
       <div id="partie_gauche">
-        <?php foreach($Produits as $produit): ?>
+        <div id=categories>
+          <?php 
+        
+          $Categories=showCategory();
+          while($row=mysqli_fetch_assoc($Categories)){
+          ?>
 
-        <img src="images\casseroles.jpg" />
+          <div class="category" data-id="<?=$row['CategoryID']?>">
+            <?=$row['Name']?>
+          </div>  
 
-        <?php endforeach; ?>
+          <?php } ?>
+        </div>
 
+        <div id=subcategories>
+          <?php 
+        
+          $Categories=showCategory();
+          while($row1=mysqli_fetch_assoc($Categories)){
+          ?>
+          <div id="sub_of_category<?=$row1['CategoryID']?>">
+            <i class="fa-solid fa-arrow-left-long"></i>
+            <?php 
+            
+            $SubCategories=showSubCategory($row1['CategoryID']);
+            while($row2=mysqli_fetch_assoc($SubCategories)){
+            ?>
+            <div class="subcategory" >
+              <?=$row2['Name']?>
+            </div> 
+            <?php } ?>
+          </div> 
+           
 
+          <?php } ?>
+        </div>
+      
       </div>
       <div id="carousel">
         <div class="hideLeft">

@@ -4,6 +4,7 @@
 }
 
 #partie_gauche, #partie_droite{
+    z-index: 5;
     width: 15%;
     height: 400px;
     background-color:#804707;
@@ -114,4 +115,33 @@
 
 #prev, #next {
   cursor: pointer;
+}
+
+
+.category,.subcategory{
+  color: white;
+  font-family: Papyrus;
+  margin: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.subcategory{
+  display: flex;
+  justify-content: center;
+}
+.category:hover, .subcategory:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+}
+
+[id^='sub_of_category'] i {
+  font-size: 30px;
+  margin: 20px;
+  cursor: pointer;
+}
+[id^='sub_of_category'] {
+  color: white;
+  font-family: Papyrus;
+  display: none;
 }
