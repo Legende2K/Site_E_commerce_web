@@ -1,3 +1,11 @@
+<?php
+
+  require("config/commandes.php");
+
+  $Produits=showItem();
+?>
+
+
 <html lang="fr">
 
 <head>
@@ -19,6 +27,12 @@
   <main>
     <div id="trois_parties">
       <div id="partie_gauche">
+        <?php foreach($Produits as $produit): ?>
+
+        <img src="images\casseroles.jpg" />
+
+        <?php endforeach; ?>
+
 
       </div>
       <div id="carousel">

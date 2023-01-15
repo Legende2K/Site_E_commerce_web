@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 13, 2023 at 11:44 PM
+-- Generation Time: Jan 14, 2023 at 11:54 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -90,26 +90,6 @@ INSERT INTO `category` (`CategoryID`, `Name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `expedition`
---
-
-CREATE TABLE `expedition` (
-  `ExpeditionID` int(11) NOT NULL,
-  `Name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `expedition`
---
-
-INSERT INTO `expedition` (`ExpeditionID`, `Name`) VALUES
-(1, 'La Poste'),
-(2, 'Chronopost'),
-(3, 'UPS');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `item`
 --
 
@@ -121,12 +101,19 @@ CREATE TABLE `item` (
   `PictureID` int(11) NOT NULL,
   `Price` int(11) NOT NULL,
   `Parution` date NOT NULL,
-  `Resume` varchar(500) NOT NULL,
-  `BuyerID` int(11) NOT NULL,
-  `BadgeID` int(11) NOT NULL,
-  `StarRate` int(11) NOT NULL,
-  `SellerID` int(11) NOT NULL
+  `Description` varchar(500) NOT NULL,
+  `BuyerID` int(11) DEFAULT NULL,
+  `BadgeID` int(11) DEFAULT NULL,
+  `StarRate` int(11) DEFAULT NULL,
+  `SellerID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `item`
+--
+
+INSERT INTO `item` (`ItemID`, `Name`, `SubCategoryID`, `MaterialID`, `PictureID`, `Price`, `Parution`, `Description`, `BuyerID`, `BadgeID`, `StarRate`, `SellerID`) VALUES
+(1, 'Lot de casseroles en inox', 1, 2, 1, 50, '2023-01-14', 'Un lot de 5 casseroles en inox neuves', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -161,6 +148,13 @@ CREATE TABLE `picture` (
   `PictureID` int(11) NOT NULL,
   `Picture` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `picture`
+--
+
+INSERT INTO `picture` (`PictureID`, `Picture`) VALUES
+(1, 'exemple d\'image');
 
 -- --------------------------------------------------------
 
@@ -208,6 +202,13 @@ CREATE TABLE `subcategory` (
   `CategoryID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `subcategory`
+--
+
+INSERT INTO `subcategory` (`SubCategoryID`, `Name`, `CategoryID`) VALUES
+(1, 'Casseroles', 5);
+
 -- --------------------------------------------------------
 
 --
@@ -218,16 +219,15 @@ CREATE TABLE `user` (
   `UserID` int(11) NOT NULL,
   `FirstName` varchar(50) NOT NULL,
   `Name` varchar(50) NOT NULL,
+  `BirthDate` date NOT NULL,
   `Address1` varchar(100) NOT NULL,
   `Address2` varchar(100) NOT NULL,
   `PostalCode` varchar(50) NOT NULL,
   `Country` varchar(50) NOT NULL,
   `Phone` int(11) NOT NULL,
   `Email` varchar(50) NOT NULL,
-  `ConfirmEmail` tinyint(1) NOT NULL,
   `Password` varchar(50) NOT NULL,
-  `RankID` int(11) NOT NULL,
-  `ExpeditionID` int(11) NOT NULL
+  `RankID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -253,12 +253,6 @@ ALTER TABLE `cart`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`CategoryID`);
-
---
--- Indexes for table `expedition`
---
-ALTER TABLE `expedition`
-  ADD PRIMARY KEY (`ExpeditionID`);
 
 --
 -- Indexes for table `item`
@@ -309,7 +303,6 @@ ALTER TABLE `subcategory`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`UserID`),
-  ADD KEY `ExpeditionID` (`ExpeditionID`),
   ADD KEY `RankID` (`RankID`);
 
 --
@@ -326,13 +319,13 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `ItemID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ItemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `picture`
 --
 ALTER TABLE `picture`
-  MODIFY `PictureID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PictureID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `stock`
@@ -384,7 +377,6 @@ ALTER TABLE `subcategory`
 -- Constraints for table `user`
 --
 ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`ExpeditionID`) REFERENCES `expedition` (`ExpeditionID`),
   ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`RankID`) REFERENCES `rank` (`RankID`);
 COMMIT;
 

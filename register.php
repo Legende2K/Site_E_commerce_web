@@ -29,10 +29,18 @@
                     <input type="text" id="surname" name="surname" required>
                     <label for="name">Prénom</label>
                     <input type="text" id="name" name="name" required>
-                    <label for="birthday">Date de naissance</label>
-                    <input type="date" id="birthday" name="birthday" required>
-                    <label for="address">Adresse</label>
-                    <input type="text" id="address" name="address" required>
+                    <label for="birthdate">Date de naissance</label>
+                    <input type="date" id="birthdate" name="birthdate" required>
+                    <label for="address1">Adresse</label>
+                    <input type="text" id="address1" name="address" required>
+                    <label for="address2">Complément d'adresse (facultatif)</label>
+                    <input type="text" id="address2" name="address2">
+                    <label for="postalCode">Code Postal</label>
+                    <input type="text" id="postalCode" name="postalCode" required>
+                    <label for="country">Pays</label>
+                    <input type="text" id="country" name="country" required>
+                    <label for="phone">Numéro de téléphone (facultatif)</label>
+                    <input type="text" id="phone" name="phone">
                     <input type="submit" value="S'inscrire">
                     <input type="button" value="Connexion" onclick="window.location.href = '../login.php';">
                 </form>
