@@ -5,13 +5,21 @@ main {
     justify-content: center;
 }
 
+.card-header {
+    display: flex;
+    justify-content: center;
+}
+
+label {
+    margin-left: 10px;
+}
+
 .login-card {
     width: 400px;
     margin: 30px;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    text-align: center;
     background-color: burlywood;
 }
 
@@ -69,4 +77,33 @@ main {
 .login-card input[type="submit"]:hover,
 .login-card input[type="button"]:hover {
     background-color: #955308;
+}
+
+.row_container {
+    display: flex;
+    gap: 5px;
+}
+
+.column_container {
+    display: flex;
+    flex-direction: column;
+}
+
+#zip_column_container {
+    width: 30%;
+}
+
+.error_input {
+    border: 2px solid red !important;
+}
+
+.error_message {
+    display: none;
+    color: red !important;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.error_p {
+    display: block !important;
 }

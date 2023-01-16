@@ -13,12 +13,7 @@ function goToFacebook() {
 }
 
 function goToLogin() {
-    const connected = window.localStorage.getItem("connected");
-    if (connected) {
-        window.location.href = "../profil.php";
-    } else {
-        window.location.href = "../login.php";
-    }
+    window.location.href = "../login.php";
 }
 
 function goToCart() {

@@ -1,8 +1,7 @@
 <?php
-  require("config/commandes.php");
+include "php/core.php";
+include "php/functions.php";
 ?>
-
-
 <html lang="fr">
 
 <head>
@@ -26,42 +25,39 @@
     <div id="trois_parties">
       <div id="partie_gauche">
         <div id=categories>
-          <?php 
-        
-          $Categories=showCategory();
-          while($row=mysqli_fetch_assoc($Categories)){
+          <?php
+
+          $Categories = showCategory();
+          while ($row = mysqli_fetch_assoc($Categories)) {
           ?>
 
-          <div class="category" data-id="<?=$row['CategoryID']?>">
-            <?=$row['Name']?>
-          </div>  
+            <div class="category" data-id="<?= $row['CategoryID'] ?>">
+              <?= $row['Name'] ?>
+            </div>
 
           <?php } ?>
         </div>
 
         <div id=subcategories>
-          <?php 
-        
-          $Categories=showCategory();
-          while($row1=mysqli_fetch_assoc($Categories)){
-          ?>
-          <div id="sub_of_category<?=$row1['CategoryID']?>">
-            <i class="fa-solid fa-arrow-left-long"></i>
-            <?php 
-            
-            $SubCategories=showSubCategory($row1['CategoryID']);
-            while($row2=mysqli_fetch_assoc($SubCategories)){
-            ?>
-            <div class="subcategory" >
-              <?=$row2['Name']?>
-            </div> 
-            <?php } ?>
-          </div> 
-           
+          <?php
 
+          $Categories = showCategory();
+          while ($row1 = mysqli_fetch_assoc($Categories)) {
+          ?>
+            <div id="sub_of_category<?= $row1['CategoryID'] ?>">
+              <i class="fa-solid fa-arrow-left-long"></i>
+              <?php
+
+              $SubCategories = showSubCategory($row1['CategoryID']);
+              while ($row2 = mysqli_fetch_assoc($SubCategories)) {
+              ?>
+                <div class="subcategory">
+                  <?= $row2['Name'] ?>
+                </div>
+              <?php } ?>
+            </div>
           <?php } ?>
         </div>
-      
       </div>
       <div id="carousel">
         <div class="hideLeft">
@@ -125,4 +121,5 @@
   </main>
   <?php include "php/components/footer.php"; ?>
 </body>
+
 </html>

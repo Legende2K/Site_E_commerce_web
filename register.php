@@ -25,20 +25,32 @@
                     <input type="email" id="email" name="email" required>
                     <label for="password">Mot de passe</label>
                     <input type="password" id="password" name="password" required>
-                    <label for="surname">Nom</label>
-                    <input type="text" id="surname" name="surname" required>
-                    <label for="name">Prénom</label>
-                    <input type="text" id="name" name="name" required>
+                    <div class="row_container">
+                        <div class="column_container">
+                            <label for="surname">Nom</label>
+                            <input type="text" id="surname" name="surname" required>
+                        </div>
+                        <div class="column_container">
+                            <label for="name">Prénom</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                    </div>
                     <label for="birthdate">Date de naissance</label>
                     <input type="date" id="birthdate" name="birthdate" required>
                     <label for="address1">Adresse</label>
                     <input type="text" id="address1" name="address" required>
                     <label for="address2">Complément d'adresse (facultatif)</label>
                     <input type="text" id="address2" name="address2">
-                    <label for="postalCode">Code Postal</label>
-                    <input type="text" id="postalCode" name="postalCode" required>
-                    <label for="country">Pays</label>
-                    <input type="text" id="country" name="country" required>
+                    <div class="row_container">
+                        <div class="column_container" id="zip_column_container">
+                            <label for="postalCode">Code Postal</label>
+                            <input type="text" id="postalCode" name="postalCode" required>
+                        </div>
+                        <div class="column_container">
+                            <label for="country">Pays</label>
+                            <input type="text" id="country" name="country" required>
+                        </div>
+                    </div>
                     <label for="phone">Numéro de téléphone (facultatif)</label>
                     <input type="text" id="phone" name="phone">
                     <input type="submit" value="S'inscrire">
