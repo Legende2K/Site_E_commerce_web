@@ -77,7 +77,7 @@ main i {
     font-size: 25px;
 }
 
-#profil_container, #address_container {
+#profil_container, #address_container, #email_modifier_container, #password_modifier_container {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -101,7 +101,7 @@ main i {
 }
 
 .input_label input {
-    padding: 5px;
+    padding: 10px;
     border-radius: 8px;
     border: 1px solid black;
     font-size: 17px;
@@ -122,6 +122,7 @@ main i {
     border-radius: 8px;
     cursor: pointer;
     margin-top: 10px;
+    padding: 3px 13px;
 }
 
 .button:hover {
@@ -141,6 +142,22 @@ main i {
     width: 100px;
 }
 
-#city {
+#city, #email, #password, #confirm_email, #confirm_password, #new_email, #password_confirm_email,
+#actuel_password, #new_password, #confirm_new_password {
     width: 300px;
+}
+
+.input_button {
+    display: flex;
+    gap: 20px;
+}
+
+.input_button div {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+}
+
+.error {
+    border: 2px solid red !important;
 }

@@ -1,5 +1,37 @@
 <?php
+function pr($var) {
+  echo "<pre>";
+  var_dump($var);
+  echo "</pre>";
+}
 
+function sql($requete) {
+  global $mysqli;
+
+  $result = $mysqli->query($requete);
+  if (!$result) {
+      exit($mysqli->error);
+  } else {
+      $nb = $result->num_rows;
+      $row = false;
+      if ($nb) {
+          $row = $result->fetch_assoc();
+      }
+  }
+  return $row;
+}
+
+function insert($requete) {
+  global $mysqli;
+
+  $result = $mysqli->query($requete);
+  if (!$result) {
+      exit($mysqli->error);
+      return false;
+  } else {
+      return true;
+  }
+}
 
 function addUser($firstName, $name, $birthDate, $address1, $address2, $postalCode, $country, $phone, $email, $password) {
   global $mysqli;
@@ -58,3 +90,5 @@ function showSubCategory($categoryID) {
 
   return ($result);
 }
+
+include "functions/profil_functions.php";
