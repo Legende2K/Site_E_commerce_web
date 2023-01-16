@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="css/accueil.css">
   <link rel="stylesheet" href="css/footer.css">
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-  <script src="js\carousel.js" async></script>
+  <script src="../js/carousel.js" async></script>
   <script src="../js/category.js" async></script>
   <title>Kittools</title>
 </head>
@@ -91,6 +91,24 @@
         <div class="hideRight">
           <img src="images\poeles.jpg" />
         </div>
+      </div>
+      <div class="products_list">
+        <?php 
+         $Items=showItem();
+         while($row=mysqli_fetch_assoc($Items)){ 
+        ?>
+        <form action="" class="product">
+            <div class="image_product">
+                <img src="images/<?=$row['Picture']?>">
+            </div>
+            <div class="content">
+                <h4 class="name"><?=$row['Name']?></h4>
+                <h2 class="price"><?=$row['Price']?>€</h2>
+                <h4 onclick="showCart()" class="id_product">Ajouter au panier</h4>
+            </div>
+        </form>
+
+        <?php } ?>
       </div>
       <div id="partie_droite">
 

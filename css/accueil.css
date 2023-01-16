@@ -121,9 +121,9 @@
 .category,.subcategory{
   color: white;
   font-family: Papyrus;
+  font-weight: bold;
   margin: 15px;
   cursor: pointer;
-  font-weight: bold;
 }
 .subcategory{
   display: flex;
@@ -144,4 +144,72 @@
   color: white;
   font-family: Papyrus;
   display: none;
+}
+
+.products_list {
+  margin: 100px auto;
+  position: relative;
+  width: 70%;
+  /* va devenir display: flex */
+  display: none;
+  flex-direction: row;
+  gap: 25px;
+  
+  
+}
+.product {
+  background-color: burlywood;
+  width: 100%;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.product:hover {
+  transform: scale(1.1);
+}
+.image_product {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image_product img {
+  height: 150px;
+  width: 250px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.content {
+  margin-top: 0px;
+  margin-bottom: 30px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(53, 33, 33);
+}
+.name{
+  font-family: Papyrus;
+}
+.price {
+  margin: 15px 0;
+  font-weight: 400;
+  color: rgb(53, 33, 33);
+  padding: 10px  10%;
+  border-radius:100%;
+  width: min-content;
+  font-family: Papyrus;
+  font-weight: bold;
+}
+.id_product {
+  text-align: center;
+  background-color: rgb(53, 33, 33);
+  color: white;
+  padding: 10px  10%;
+  border-radius: 6px;
+  font-family: Papyrus;
+  cursor: pointer;
 }
