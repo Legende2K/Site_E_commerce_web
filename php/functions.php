@@ -55,6 +55,17 @@ function addItem($name, $price, $description) {
   }
 }
 
+function addItemToCart($itemID, $customerID, $quantity)
+  {
+    require("connexion.php");
+    $sql = "INSERT INTO cart (customerID, itemID, quantity) WHERE CustomerID=$customerID VALUES ($itemID, $customerID, $quantity)";
+
+    $result = $mysqli->query($sql);
+        if (!$result) {
+        exit($mysqli->error);
+        }
+  }
+
 function showItem() {
   global $mysqli;
   $sql = "SELECT * FROM item ORDER BY price ASC";
@@ -89,6 +100,19 @@ function showSubCategory($categoryID) {
   }
 
   return ($result);
+}
+
+function showCart($customerID)
+{
+  require("connexion.php");
+  $sql = "SELECT * FROM cart WHERE customerID= $customerID";
+
+  $result = $mysqli->query($sql);
+  if (!$result) {
+  exit($mysqli->error);
+  }
+  
+  return($result);
 }
 
 include "functions/profil_functions.php";

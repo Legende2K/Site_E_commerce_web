@@ -29,3 +29,20 @@ for (var i = 0; i < arrows.length; i++) {
         }
     });
 }
+
+var subCategories = document.getElementsByClassName("subcategory");
+for (var i = 0; i < subCategories.length; i++) {
+    subCategories[i].addEventListener("click", function() {
+        var carousel = document.getElementById("carousel");
+        var chevrons = document.getElementsByClassName("chevrons");
+        carousel.style.display = "none";
+        for (var i = 0; i < chevrons.length; i++) {
+            chevrons[i].style.display = "none";
+        }
+        var productsList = document.getElementsByClassName("products_list");
+        for (var j = 0; j < productsList.length; j++) {
+            productsList[j].style.display = "flex";
+        }
+    });
+}
+
