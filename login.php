@@ -1,7 +1,6 @@
 <?php
-include('php/core.php');
-include('php/functions.php');
-pr($_SESSION);
+include 'php/core.php';
+include 'php/functions.php';
 if (isset($_SESSION["compte"])) {
     header("Location: ../profil.php");
 }

@@ -90,3 +90,5 @@ function showSubCategory($categoryID) {
 
   return ($result);
 }
+
+include "functions/profil_functions.php";
