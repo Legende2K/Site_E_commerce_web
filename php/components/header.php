@@ -23,5 +23,8 @@
         </div>
         <i class="fa-solid fa-user" onclick="showProfil()"></i>
     </div>
+    <?php
+    echo '<script>const suggestions = ["Couteaux"];</script>';
+    ?>
     <script src="../js/header.js"></script>
 </header>

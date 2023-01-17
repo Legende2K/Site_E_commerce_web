@@ -1,10 +1,3 @@
-let suggestions = [
-    "Couteaux",
-    "Fourchettes",
-    "Cuilllières",
-    "Assiettes",
-];
-
 const searchInput = document.querySelector("#search_bar");
 const input = searchInput.querySelector("input");
 const resultBox = searchInput.querySelector(".resultBox");
