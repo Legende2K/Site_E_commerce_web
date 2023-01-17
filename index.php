@@ -89,20 +89,20 @@ include "php/functions.php";
         </div>
       </div>
       <div class="products_list">
-        <?php 
-         $Items=showItem();
-         while($row=mysqli_fetch_assoc($Items)){ 
+        <?php
+        $Items = showItem();
+        while ($row = mysqli_fetch_assoc($Items)) {
         ?>
-        <form action="" class="product">
+          <form action="" class="product">
             <div class="image_product">
-                <img src="images/<?=$row['Picture']?>">
+              <img src="images/<?= $row['Picture'] ?>">
             </div>
             <div class="content">
-                <h4 class="name"><?=$row['Name']?></h4>
-                <h2 class="price"><?=$row['Price']?>€</h2>
-                <h4 onclick="showCart()" class="id_product">Ajouter au panier</h4>
+              <h4 class="name"><?= $row['Name'] ?></h4>
+              <h2 class="price"><?= $row['Price'] ?>€</h2>
+              <h4 onclick="showCart()" class="id_product">Ajouter au panier</h4>
             </div>
-        </form>
+          </form>
 
         <?php } ?>
       </div>
@@ -121,5 +121,53 @@ include "php/functions.php";
   </main>
   <?php include "php/components/footer.php"; ?>
 </body>
+<script>
+  function removeLeadingTrailingWhitespaces(name) {
+    return name.replace(/(^[\s\n]+|[\s\n]+$)/g, '');
+  }
+  const subCategories2 = document.getElementsByClassName("subcategory");
+  for (let i = 0; i < subCategories2.length; i++) {
+    subCategories2[i].addEventListener("click", function() {
+      console.log(subCategories2[i], i);
+      const name = subCategories2[i].innerHTML
+      window.location.href = "index.php?category=" + removeLeadingTrailingWhitespaces(name);
+    });
+  }
+
+  function showSubcaterory2() {
+    var carousel = document.getElementById("carousel");
+    var chevrons = document.getElementsByClassName("chevrons");
+    carousel.style.display = "none";
+    for (var i = 0; i < chevrons.length; i++) {
+      chevrons[i].style.display = "none";
+    }
+    var productsList = document.getElementsByClassName("products_list");
+    for (var j = 0; j < productsList.length; j++) {
+      productsList[j].style.display = "flex";
+    }
+  }
+
+  <?php if (isset($_GET['category'])) { ?>
+    showSubcaterory2();
+  <?php } ?>
+</script>
+<?php
+if (isset($_GET['category'])) {
+  //recup id par rapport au nom de la catégorie
+  $sql = "SELECT SubCategoryID FROM subcategory WHERE Name = '" . $_GET['category'] . "'";
+  $result = sql($sql);
+
+  //recup items par rapport à l'id de la catégorie
+  $sql = "SELECT * FROM item WHERE SubCategoryID = '" . $result["SubCategoryID"] . "'";
+  $result = $mysqli->query($sql);
+  $nb = $result->num_rows;
+  $innerHTML = "";
+  while ($row = $result->fetch_assoc()) {
+    $innerHTML = $innerHTML . '<form action="" class="product"><div class="image_product"><img src="images/' . $row['Picture'] .  '"></div><div class="content"><h4 class="name">' . $row['Name'] . '</h4><h2 class="price">' . $row['Price'] . '€</h2><h4 onclick="showCart()" class="id_product">Ajouter au panier</h4></div></form>';
+  }
+
+  echo "<script>document.getElementsByClassName('products_list')[0].innerHTML = '" . $innerHTML . "';</script>";
+}
+?>
 
 </html>
