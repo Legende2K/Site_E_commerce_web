@@ -25,53 +25,22 @@ input.onkeyup = (e) => {
             return removeAccents(data.toLocaleLowerCase()).includes(removeAccents(userData.toLocaleLowerCase()));
         });
         emptyArray = emptyArray.map((data) => {
-            return data = '<li>&emsp;' + data + '</li>';
+            return data = '<li onclick=goToItem(' + ids[suggestions.indexOf(data)] + ')>&emsp;' + data + '</li>';
         });
     }
     resultBox.innerHTML = emptyArray.join('');
+}
+
+function goToItem(id) {
+    window.location.href = "../item.php?id=" + id;
 }
 
 input.addEventListener("focusin", (event) => {
     resultBox.style.display = "block";
 });
 
-input.addEventListener("focusout", (event) => {
-    resultBox.style.display = "none";
-});
-
-
-//A enlever plus tard
-localStorage.setItem('items', ['Item_1', 'Item_2', 'Item_3']);
-
-let continueToShowDropdown = false;
-
 function showCart() {
-    const items = localStorage.getItem("items").split(',');
-    if (items.length === 0 || (items.length === 1 && items[0] == '')) {
-        document.querySelector("#cart_items").innerHTML = "<p style='width: max-content'>Aucun item dans le panier</p>";
-        document.querySelector("#cart_items").style.display = document.querySelector("#cart_items").style.display == "block" ? "none" : "block";
-    } else {
-        const html = [];
-        for (let i = 0; i < items.length; i++) {
-            html.push(
-                "<li class='cart_item' id='" + items[i] + "'>" +
-                "<img src='../images/logo.jpg'>" +
-                "<p>" + items[i].toUpperCase() + "<br><span style='font-size: 12'>10,99€</span></p>" +
-                "<p class='qte_item'>Qte : 2</p>" +
-                "<i class='fa-solid fa-xmark' onclick='deleteItem(\"" + items[i] + "\")'></i>" +
-                "</li>"
-            );
-        }
-        html.push(
-            "<div id='pay_button' onclick='goToCart()'>" +
-            "<p>Payez</p>" +
-            "<i class='fa-solid fa-arrow-right'></i>" +
-            "</div>"
-        )
-        document.querySelector("#cart_items").innerHTML = html.join("");
-        document.querySelector("#cart_items").style.display = document.querySelector("#cart_items").style.display == "block" ? "none" : "block";
-    }
-
+    document.querySelector("#cart_items").style.display = document.querySelector("#cart_items").style.display == "block" ? "none" : "block";
 }
 
 function deleteItem(item) {
@@ -82,7 +51,6 @@ function deleteItem(item) {
     items.splice(index, 1);
     localStorage.setItem("items", items);
     document.querySelector("#cart_items #" + item).remove();
-    continueToShowDropdown = true;
     document.querySelector("#cart_count").innerHTML = items.length;
     if (items.length == 0) {
         document.querySelector("#cart_items").innerHTML = "<p style='width: max-content'>Aucun item dans le panier</p>";
@@ -94,7 +62,9 @@ document.addEventListener("click", function (event) {
     if (!document.querySelector("#dropdown_cart").contains(event.target)) {
         document.querySelector("#cart_items").style.display = "none";
     }
-    continueToShowDropdown = false;
+    if (!document.querySelector("#search_bar").contains(event.target)) {
+        resultBox.style.display = "none";
+    }
 });
 
 function goToCart() {

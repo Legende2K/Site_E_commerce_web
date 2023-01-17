@@ -83,6 +83,7 @@ header input {
     width: 100%;
     background-color: white;
     padding: 10px 0px;
+    cursor: pointer;
 }
 
 .resultBox li:hover {
