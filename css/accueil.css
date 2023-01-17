@@ -164,6 +164,7 @@
   border-radius: 6px;
   overflow: hidden;
   transition: 0.5s;
+  z-index: 100;
 }
 .product:hover {
   transform: scale(1.1);

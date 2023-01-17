@@ -89,22 +89,7 @@ include "php/functions.php";
         </div>
       </div>
       <div class="products_list">
-        <?php
-        $Items = showItem();
-        while ($row = mysqli_fetch_assoc($Items)) {
-        ?>
-          <form action="" class="product">
-            <div class="image_product">
-              <img src="images/<?= $row['Picture'] ?>">
-            </div>
-            <div class="content">
-              <h4 class="name"><?= $row['Name'] ?></h4>
-              <h2 class="price"><?= $row['Price'] ?>€</h2>
-              <h4 onclick="showCart()" class="id_product">Ajouter au panier</h4>
-            </div>
-          </form>
-
-        <?php } ?>
+        
       </div>
       <div id="partie_droite">
 
@@ -160,7 +145,6 @@ if (isset($_GET['category'])) {
   //recup items par rapport à l'id de la catégorie
   $sql = "SELECT * FROM item WHERE SubCategoryID = '" . $result["SubCategoryID"] . "'";
   $result = $mysqli->query($sql);
-  $nb = $result->num_rows;
   $innerHTML = "";
   while ($row = $result->fetch_assoc()) {
     $innerHTML = $innerHTML . '<form action="" class="product"><div class="image_product"><img src="images/' . $row['Picture'] .  '"></div><div class="content"><h4 class="name">' . $row['Name'] . '</h4><h2 class="price">' . $row['Price'] . '€</h2><h4 onclick="showCart()" class="id_product">Ajouter au panier</h4></div></form>';
