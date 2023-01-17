@@ -33,18 +33,6 @@ function insert($requete) {
   }
 }
 
-function addUser($firstName, $name, $birthDate, $address1, $address2, $postalCode, $country, $phone, $email, $password) {
-  global $mysqli;
-  $sql = "INSERT INTO user (firstName, name, birthDate, address1, address2, postalCode, country, phone, email, password) VALUES ($firstName, $name, $birthDate, $address1, $address2, $postalCode, $country, $phone, $email, $password)";
-
-  $result = $mysqli->query($sql);
-  if (!$result) {
-    exit($mysqli->error);
-  }
-}
-
-
-
 function addItem($name, $price, $description) {
   global $mysqli;
   $sql = "INSERT INTO produits (name, price, description) VALUES ($name, $price, $description)";
