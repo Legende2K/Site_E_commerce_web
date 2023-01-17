@@ -24,7 +24,13 @@
         <i class="fa-solid fa-user" onclick="showProfil()"></i>
     </div>
     <?php
-    echo '<script>const suggestions = ["Couteaux"];</script>';
+    $sql = "SELECT Name FROM item";
+    $result = $mysqli->query($sql);
+    $suggestions = "";
+    while ($row = $result->fetch_assoc()) {
+        $suggestions .= '"' . $row["Name"] . '",';
+    }
+    echo '<script>const suggestions = [' . $suggestions . '];</script>';
     ?>
     <script src="../js/header.js"></script>
 </header>

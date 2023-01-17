@@ -2,15 +2,30 @@ const searchInput = document.querySelector("#search_bar");
 const input = searchInput.querySelector("input");
 const resultBox = searchInput.querySelector(".resultBox");
 
-input.onkeyup = (e)=>{
+function removeAccents(str) {
+    var accents = "ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž";
+    var accentsOut = "AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz";
+    str = str.split('');
+    var strLen = str.length;
+    var i, x;
+    for (i = 0; i < strLen; i++) {
+        if ((x = accents.indexOf(str[i])) != -1) {
+            str[i] = accentsOut[x];
+        }
+    }
+    return str.join('');
+}
+
+
+input.onkeyup = (e) => {
     let userData = e.target.value;
     let emptyArray = [];
-    if(userData){
-        emptyArray = suggestions.filter((data)=>{
-            return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase()); 
+    if (userData) {
+        emptyArray = suggestions.filter((data) => {
+            return removeAccents(data.toLocaleLowerCase()).includes(removeAccents(userData.toLocaleLowerCase()));
         });
-        emptyArray = emptyArray.map((data)=>{
-            return data = '<li>&emsp;'+ data +'</li>';
+        emptyArray = emptyArray.map((data) => {
+            return data = '<li>&emsp;' + data + '</li>';
         });
     }
     resultBox.innerHTML = emptyArray.join('');
@@ -37,13 +52,13 @@ function showCart() {
         document.querySelector("#cart_items").style.display = document.querySelector("#cart_items").style.display == "block" ? "none" : "block";
     } else {
         const html = [];
-        for (let i = 0 ; i < items.length ; i++) {
+        for (let i = 0; i < items.length; i++) {
             html.push(
-                "<li class='cart_item' id='" + items[i] + "'>" + 
-                    "<img src='../images/logo.jpg'>" +
-                    "<p>" + items[i].toUpperCase() + "<br><span style='font-size: 12'>10,99€</span></p>" +
-                    "<p class='qte_item'>Qte : 2</p>" +
-                    "<i class='fa-solid fa-xmark' onclick='deleteItem(\"" + items[i] + "\")'></i>" +
+                "<li class='cart_item' id='" + items[i] + "'>" +
+                "<img src='../images/logo.jpg'>" +
+                "<p>" + items[i].toUpperCase() + "<br><span style='font-size: 12'>10,99€</span></p>" +
+                "<p class='qte_item'>Qte : 2</p>" +
+                "<i class='fa-solid fa-xmark' onclick='deleteItem(\"" + items[i] + "\")'></i>" +
                 "</li>"
             );
         }
@@ -56,7 +71,7 @@ function showCart() {
         document.querySelector("#cart_items").innerHTML = html.join("");
         document.querySelector("#cart_items").style.display = document.querySelector("#cart_items").style.display == "block" ? "none" : "block";
     }
-    
+
 }
 
 function deleteItem(item) {
