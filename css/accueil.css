@@ -12,6 +12,31 @@
     background-color:#804707;
 }
 
+#partie_droite{
+  display:flex;
+  align-items: center;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  overflow: hidden;
+}
+
+.bandeau{
+  height: fit-content;
+  white-space: nowrap;
+  font-size: 60px;
+  font-weight: 500;
+  animation: Scroll 30s linear infinite;
+  font-family: "Mrs Sheppards";
+  color: burlywood;
+}
+
+@keyframes Scroll {
+  0% {
+    transform: translateY(-100%);
+  }
+}
+
+
 /* Carousel */
 
 #carousel {

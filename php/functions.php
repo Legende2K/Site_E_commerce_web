@@ -50,6 +50,7 @@ function removeURLParameter($keyParams)
   header("Location: " . $new_url);
 }
 
+
 include "functions/profil_functions.php";
 include "functions/categories_functions.php";
 include "functions/cart_functions.php";
