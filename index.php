@@ -14,8 +14,6 @@ include "php/functions.php";
   <link rel="stylesheet" href="css/accueil.css">
   <link rel="stylesheet" href="css/footer.css">
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-  <script src="../js/carousel.js" async></script>
-  <script src="../js/category.js" async></script>
   <title>Kittools</title>
 </head>
 
@@ -136,6 +134,8 @@ include "php/functions.php";
     showSubcaterory2();
   <?php } ?>
 </script>
+<script src="../js/carousel.js"></script>
+<script src="../js/category.js"></script>
 <?php
 if (isset($_GET['category'])) {
   //recup id par rapport au nom de la catégorie
