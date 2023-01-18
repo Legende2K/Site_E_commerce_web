@@ -1,26 +1,25 @@
-
-
-#trois_parties{
-    display: flex;
-    flex-direction: row;
+#trois_parties {
+  display: flex;
+  flex-direction: row;
 }
 
-#partie_gauche, #partie_droite{
-    z-index: 5;
-    width: 15%;
-    height: 400px;
-    background-color:#804707;
+#partie_gauche,
+#partie_droite {
+  z-index: 5;
+  width: 15%;
+  height: 400px;
+  background-color: #804707;
 }
 
-#partie_droite{
-  display:flex;
+#partie_droite {
+  display: flex;
   align-items: center;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   overflow: hidden;
 }
 
-.bandeau{
+.bandeau {
   height: fit-content;
   white-space: nowrap;
   font-size: 60px;
@@ -28,6 +27,10 @@
   animation: Scroll 30s linear infinite;
   font-family: "Mrs Sheppards";
   color: burlywood;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
 
 @keyframes Scroll {
@@ -40,123 +43,141 @@
 /* Carousel */
 
 #carousel {
-    height: 400px;
-    top: 50%;
-    overflow: hidden;
-    width:70%;
-    background-image: url("../images/fond-bois.png");
-  }
-  
-  #carousel div {
-    position: absolute;
-    transition: transform 1s, left 1s, opacity 1s, z-index 0s;
-    opacity: 1;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  #carousel img {
-    width: 400px;
-    transition: width 1s;
-  }
-  
-  #carousel div.hideLeft {
-    left: 10%;
-    opacity: 0;
-    transform: translateY(20%) translateX(-50%);
-  }
-  #carousel div.hideLeft img {
-    width: 200px;
-  }
-  #carousel div.hideRight {
-    left: 90%;
-    opacity: 0;
-    transform: translateY(20%) translateX(-50%);
-  }
-  #carousel div.hideRight img {
-    width: 200px;
-  }
-  #carousel div.prev {
-    z-index: 5;
-    left: 35%;
-    transform: translateY(5%) translateX(-50%);
-  }
-  #carousel div.prev img {
-    width: 300px;
-  }
-  #carousel div.prevLeftSecond {
-    z-index: 4;
-    left: 22.5%;
-    transform: translateY(10%) translateX(-50%);
-    opacity: 0.9;
-  }
-  #carousel div.prevLeftSecond img {
-    width: 200px;
-  }
-  #carousel div.selected {
-    z-index: 10;
-    left: 50%;
-    transform: translateY(0px) translateX(-50%);
-  }
-  #carousel div.next {
-    z-index: 5;
-    left: 65%;
-    transform: translateY(5%) translateX(-50%);
-  }
-  #carousel div.next img {
-    width: 300px;
-  }
-  #carousel div.nextRightSecond {
-    z-index: 4;
-    left: 77.5%;
-    transform: translateY(10%) translateX(-50%);
-    opacity: 0.9;
-  }
-  #carousel div.nextRightSecond img {
-    width: 200px;
-  }
-  
-  #chevrons_position{
-      position: relative
-  }
-  
-  .chevrons{
-      position: absolute;
-      top: 50%; left: 50%; 
-      gap:450px;
-      opacity: 0.9;
-      display: flex;
-      justify-content: center;
-      z-index: 15;
-      transform: translateY(-350%) translateX(-50%);
-  }
-  
-  .chevrons i{
-      font-size: 60px;
-      color:rgb(235, 127, 25);
-      padding: 0;
-      margin: 0;
-  }
+  height: 400px;
+  top: 50%;
+  overflow: hidden;
+  width: 70%;
+  background-image: url("../images/fond-bois.png");
+}
 
-#prev, #next {
+#carousel div {
+  position: absolute;
+  transition: transform 1s, left 1s, opacity 1s, z-index 0s;
+  opacity: 1;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#carousel img {
+  width: 400px;
+  transition: width 1s;
+}
+
+#carousel div.hideLeft {
+  left: 10%;
+  opacity: 0;
+  transform: translateY(20%) translateX(-50%);
+}
+
+#carousel div.hideLeft img {
+  width: 200px;
+}
+
+#carousel div.hideRight {
+  left: 90%;
+  opacity: 0;
+  transform: translateY(20%) translateX(-50%);
+}
+
+#carousel div.hideRight img {
+  width: 200px;
+}
+
+#carousel div.prev {
+  z-index: 5;
+  left: 35%;
+  transform: translateY(5%) translateX(-50%);
+}
+
+#carousel div.prev img {
+  width: 300px;
+}
+
+#carousel div.prevLeftSecond {
+  z-index: 4;
+  left: 22.5%;
+  transform: translateY(10%) translateX(-50%);
+  opacity: 0.9;
+}
+
+#carousel div.prevLeftSecond img {
+  width: 200px;
+}
+
+#carousel div.selected {
+  z-index: 10;
+  left: 50%;
+  transform: translateY(0px) translateX(-50%);
+}
+
+#carousel div.next {
+  z-index: 5;
+  left: 65%;
+  transform: translateY(5%) translateX(-50%);
+}
+
+#carousel div.next img {
+  width: 300px;
+}
+
+#carousel div.nextRightSecond {
+  z-index: 4;
+  left: 77.5%;
+  transform: translateY(10%) translateX(-50%);
+  opacity: 0.9;
+}
+
+#carousel div.nextRightSecond img {
+  width: 200px;
+}
+
+#chevrons_position {
+  position: relative
+}
+
+.chevrons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  gap: 450px;
+  opacity: 0.9;
+  display: flex;
+  justify-content: center;
+  z-index: 15;
+  transform: translateY(-350%) translateX(-50%);
+}
+
+.chevrons i {
+  font-size: 60px;
+  color: rgb(235, 127, 25);
+  padding: 0;
+  margin: 0;
+}
+
+#prev,
+#next {
   cursor: pointer;
 }
 
 
-.category,.subcategory{
+.category,
+.subcategory {
   color: white;
   font-family: Papyrus;
   font-weight: bold;
   margin: 15px;
   cursor: pointer;
 }
-.subcategory{
+
+.subcategory {
   display: flex;
   justify-content: center;
 }
-.category:hover, .subcategory:hover {
+
+.category:hover,
+.subcategory:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1.5px;
@@ -167,6 +188,7 @@
   margin: 20px;
   cursor: pointer;
 }
+
 [id^='sub_of_category'] {
   color: white;
   font-family: Papyrus;
@@ -181,22 +203,25 @@
   display: none;
   flex-direction: row;
   gap: 25px;
-  
-  
+
+
 }
+
 .product {
   background-color: burlywood;
   width: 100%;
-  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   border-radius: 6px;
   overflow: hidden;
   transition: 0.5s;
   z-index: 100;
   cursor: pointer;
 }
+
 .product:hover {
   transform: scale(1.1);
 }
+
 .image_product {
   height: 200px;
   width: 100%;
@@ -204,6 +229,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .image_product img {
   height: 150px;
   width: 250px;
@@ -220,24 +246,27 @@
   align-items: center;
   color: rgb(53, 33, 33);
 }
-.name{
+
+.name {
   font-family: Papyrus;
 }
+
 .price {
   margin: 15px 0;
   font-weight: 400;
   color: rgb(53, 33, 33);
-  padding: 10px  10%;
-  border-radius:100%;
+  padding: 10px 10%;
+  border-radius: 100%;
   width: min-content;
   font-family: Papyrus;
   font-weight: bold;
 }
+
 .id_product {
   text-align: center;
   background-color: rgb(53, 33, 33);
   color: white;
-  padding: 10px  10%;
+  padding: 10px 10%;
   border-radius: 6px;
   font-family: Papyrus;
   cursor: pointer;

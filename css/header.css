@@ -76,7 +76,7 @@ header input {
     width: 400px;
     display: flex;
     flex-direction: column;
-    z-index: 20;
+    z-index: 200;
     justify-content: center;
     transform: translateX(-45%);
 }
