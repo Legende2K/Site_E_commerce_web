@@ -78,3 +78,13 @@ function goToAccueil() {
 function showProfil() {
     window.location.href = "../login.php";
 }
+
+
+//functions utiles dans plusieurs fichiers
+function addParameterToURL(paramName, paramValue) {
+    const url = new URL(window.location.href);
+    const params = new URLSearchParams(url.search);
+    params.set(paramName, paramValue);
+    url.search = params;
+    window.location.href = url;
+}

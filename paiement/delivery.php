@@ -41,25 +41,23 @@ include "../php/functions.php";
             <h2>Informations de livraison</h2>
             <p>Veuillez fournir les informations ci-dessous pour que nous puissions livrer votre commande :</p>
             <label for="name">Nom et prénom du destinataire :</label>
-            <input type="text" id="name" name="name">
+            <input type="text" id="name" name="name" value="<?php echo $_COMPTE["Name"].' '.$_COMPTE["FirstName"] ?>">
             <label for="address1">Adresse : <span>Ex: 7 rue des Fleurs</span></label>
-            <input type="text" id="address1" name="address1">
+            <input type="text" id="address1" name="address1" value="<?php echo $_COMPTE["Address1"] ?>">
             <label for="address2">Complément d'adresse : <span>N° appartement, étage, résidence</span></label>
-            <input type="text" id="address2" name="address2">
+            <input type="text" id="address2" name="address2" value="<?php echo $_COMPTE["Address2"] ?>">
             <div id="ville_zip">
                 <div>
                     <label for="zip">Code postal :</label>
-                    <input type="text" id="zip" name="zip">
+                    <input type="text" id="zip" name="zip" value="<?php echo $_COMPTE["PostalCode"] ?>">
                 </div>
                 <div>
                     <label for="city">Ville :</label>
-                    <input type="text" id="city" name="city">
+                    <input type="text" id="city" name="city" value="<?php echo $_COMPTE["City"] ?>">
                 </div>
             </div>
-            <label for="state">État/province/région :</label>
-            <input type="text" id="state" name="state">
             <label for="country">Pays :</label>
-            <input type="text" id="country" name="country">
+            <input type="text" id="country" name="country" value="<?php echo $_COMPTE["Country"] ?>">
             <div id="submit_button">
                 <input type="button" onclick="validateForm()" value="Payer">
             </div>

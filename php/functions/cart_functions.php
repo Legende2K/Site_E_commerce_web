@@ -22,3 +22,38 @@ function addToCart()
         exit();
     }
 }
+
+function delFromCart()
+{
+    if (isset($_GET["deleted_item"])) {
+        $sql = "DELETE FROM cart WHERE CustomerID = '" . $_SESSION["compte"] . "' AND ItemID = '" . $_GET["deleted_item"] . "'";
+        insert($sql);
+
+        removeURLParameter("deleted_item");
+        exit();
+    }
+}
+
+function minusQuantity() {
+    if (isset($_GET["minus_item"])) {
+        $sql = "SELECT Quantity FROM cart WHERE CustomerID = '" . $_SESSION["compte"] . "' AND ItemID = '" . $_GET["minus_item"] . "'";
+        $result = sql($sql);
+        if ($result["Quantity"] > 1) {
+            $sql = "UPDATE cart SET Quantity = Quantity - 1 WHERE CustomerID = '" . $_SESSION["compte"] . "' AND ItemID = '" . $_GET["minus_item"] . "'";
+            insert($sql);
+        }
+
+        removeURLParameter("minus_item");
+        exit();
+    }
+}
+
+function plusQuantity() {
+    if (isset($_GET["plus_item"])) {
+        $sql = "UPDATE cart SET Quantity = Quantity + 1 WHERE CustomerID = '" . $_SESSION["compte"] . "' AND ItemID = '" . $_GET["plus_item"] . "'";
+        insert($sql);
+
+        removeURLParameter("plus_item");
+        exit();
+    }
+}
