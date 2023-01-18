@@ -20,14 +20,26 @@ if (isset($_GET["id"])) {
     <link rel="stylesheet" href="css/all.min.css" />
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/item.css">
+    <script src="../js/starRate.js"></script>
     <title>Kittools</title>
 </head>
 
 <body>
     <?php include "php/components/header.php"; ?>
     <main>
-
+        <div class=itemContainer>
+            <img class=itemPicture src="images\<?=$item['Picture']?>" />
+            <div class=itemInfos>
+                <h2 class=itemName><?=$item['Name']?></h2>
+                <h3 class=itemPrice>Prix : <?=$item['Price']?> €</h3>
+                <div class="itemStarRate"></div>
+                <div class=itemDescription><?=$item['Description']?></div>
+                <h4 class=addItemCart onclick="showCart()">Ajouter au panier</h4>
+            </div>
+        </div>
     </main>
+    <script>document.querySelector(".itemStarRate").innerHTML=pushStars(<?=$item['StarRate']?>);</script>
     <?php include "php/components/footer.php"; ?>
 </body>
 

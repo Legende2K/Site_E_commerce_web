@@ -54,9 +54,21 @@ function addItemToCart($itemID, $customerID, $quantity)
         }
   }
 
-function showItem() {
+function showItems() {
   global $mysqli;
   $sql = "SELECT * FROM item ORDER BY price ASC";
+
+  $result = $mysqli->query($sql);
+  if (!$result) {
+    exit($mysqli->error);
+  }
+
+  return ($result);
+}
+
+function showItem($ItemID) {
+  global $mysqli;
+  $sql = "SELECT * FROM item WHERE ItemID=$ItemID";
 
   $result = $mysqli->query($sql);
   if (!$result) {
