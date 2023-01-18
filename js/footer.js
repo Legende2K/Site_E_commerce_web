@@ -19,3 +19,14 @@ function goToLogin() {
 function goToCart() {
     window.location.href = "../paiement/cart.php";
 }
+
+function changeVisibilityCredits() {
+    const p = document.querySelector('#credits p:last-child');
+    if (p.classList.contains('visible')) {
+        p.classList.remove('visible');
+        p.classList.add('hidden');
+    } else {
+        p.classList.remove('hidden');
+        p.classList.add('visible');
+    }
+}

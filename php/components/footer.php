@@ -19,7 +19,8 @@
         </div>
     </div>
     <div id="credits">
-        <h5>Site réalisé par le groupe 5</h5>
+        <p onclick="changeVisibilityCredits()">Site réalisé par le groupe 5</p>
+        <p class="hidden">&emsp;-->&emsp;Partie Infra : Jessy Rivet - Alexandre Sauton | Partie Web : Basile Lebaudy - Louis Legendre | Partie Java : Maxence Le Du - Nathan Lafrogne</p>
     </div>
 </footer>
 <script src="../js/footer.js"></script>

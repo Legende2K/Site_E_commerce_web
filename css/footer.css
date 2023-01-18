@@ -5,7 +5,6 @@ footer{
 
 main {
     background-color: #804707;
-    padding: 10px;
 }
 
 p, label {
@@ -18,14 +17,6 @@ p, label {
     justify-content: space-between;
     padding-right: 150px;
     padding-left: 150px;
-}
-
-#credits{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding-bottom: 10px;
-    background-color: #70420e;
 }
 
 #icons_reseaux{
@@ -45,14 +36,32 @@ footer h3{
     margin-top: 5px;
 }
 
-footer h5{
-    margin: 15px;
+#credits{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+    background-color: #70420e;
+}
+
+#credits p {
+    font-size: 14px;
+}
+
+#credits p:first-child{
     cursor: pointer;
 }
 
-footer h5:hover {
+#credits p:first-child:hover {
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 1.5px;
 }
 
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
