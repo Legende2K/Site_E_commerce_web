@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 15 jan. 2023 à 19:01
+-- Généré le : mer. 18 jan. 2023 à 11:22
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -36,7 +36,14 @@ CREATE TABLE IF NOT EXISTS `cart` (
   PRIMARY KEY (`CartID`),
   KEY `CustomerID` (`CustomerID`),
   KEY `ItemID` (`ItemID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Déchargement des données de la table `cart`
+--
+
+INSERT INTO `cart` (`CartID`, `CustomerID`, `ItemID`, `Quantity`) VALUES
+(4, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -58,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `category` (
 INSERT INTO `category` (`CategoryID`, `Name`) VALUES
 (1, 'Ameublement'),
 (2, 'Décoration'),
-(3, 'Vaiselle'),
+(3, 'Vaisselle'),
 (4, 'Rangements'),
 (5, 'Casseroles, plats et poêles'),
 (6, 'Electroménager'),
@@ -77,39 +84,30 @@ CREATE TABLE IF NOT EXISTS `item` (
   `Name` varchar(50) NOT NULL,
   `SubCategoryID` int NOT NULL,
   `Picture` text NOT NULL,
-  `Price` int NOT NULL,
+  `Price` double NOT NULL,
   `Description` varchar(500) NOT NULL,
+  `Quantity` int NOT NULL,
   `BuyerID` int DEFAULT NULL,
-  `StarRate` int DEFAULT NULL,
+  `StarRate` double NOT NULL,
   `SellerID` int DEFAULT NULL,
   PRIMARY KEY (`ItemID`),
   KEY `BuyerID` (`BuyerID`),
   KEY `SellerID` (`SellerID`),
   KEY `SubCategoryID` (`SubCategoryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Déchargement des données de la table `item`
 --
 
-INSERT INTO `item` (`ItemID`, `Name`, `SubCategoryID`, `Picture`, `Price`, `Description`, `BuyerID`, `StarRate`, `SellerID`) VALUES
-(1, 'Lot de casseroles en inox', 1, 'casseroles.jpg', 50, 'Un lot de 7 casseroles en inox neuves', NULL, NULL, NULL),
-(2, 'Kit de poêles en téflon', 2, 'poeles.jpg', 40, 'Un kit de 3 poêles en téflon neuves', NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `stock`
---
-
-DROP TABLE IF EXISTS `stock`;
-CREATE TABLE IF NOT EXISTS `stock` (
-  `StockID` int NOT NULL AUTO_INCREMENT,
-  `ItemID` int NOT NULL,
-  `Quantity` int NOT NULL,
-  PRIMARY KEY (`StockID`),
-  KEY `ItemID` (`ItemID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+INSERT INTO `item` (`ItemID`, `Name`, `SubCategoryID`, `Picture`, `Price`, `Description`, `Quantity`, `BuyerID`, `StarRate`, `SellerID`) VALUES
+(1, 'Lot de casseroles en inox', 1, 'casseroles.jpg', 49.9, 'Un lot de 7 casseroles en inox neuves', 15, NULL, 3.2, NULL),
+(2, 'Kit de poêles en téflon', 2, 'poeles.jpg', 39.9, 'Un kit de 3 poêles en téflon neuves', 7, NULL, 3.6, NULL),
+(3, 'Meuble de rangement noir', 14, 'tiroirs.png', 359.9, 'Meuble de rangement avec tiroirs. Design pixel perfect.', 1, NULL, 4.4, NULL),
+(4, 'Kit ustensiles dorés 1', 23, 'ustenciles_or.png', 19.9, 'Kit d\'ustensiles de cuisine en inox plaqué doré.', 30, NULL, 3.9, NULL),
+(5, 'Lot de casseroles en inox', 1, 'casseroles.jpg', 49.9, 'Un lot de 7 casseroles en inox neuves', 25, NULL, 3.2, NULL),
+(6, 'Kit ustensiles dorés 2', 23, 'ustenciles_or.png', 19.9, 'Kit d\'ustensiles de cuisine en inox plaqué doré.', 1, NULL, 3.9, NULL),
+(7, 'Kit ustensiles dorés 3', 23, 'ustenciles_or.png', 19.9, 'Kit d\'ustensiles de cuisine en inox plaqué doré.', 0, NULL, 3.9, NULL);
 
 -- --------------------------------------------------------
 
@@ -176,12 +174,21 @@ CREATE TABLE IF NOT EXISTS `user` (
   `Address1` varchar(100) NOT NULL,
   `Address2` varchar(100) NOT NULL,
   `PostalCode` varchar(50) NOT NULL,
+  `City` varchar(50) NOT NULL,
   `Country` varchar(50) NOT NULL,
   `Phone` int NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Password` varchar(50) NOT NULL,
+  `admin` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`UserID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`UserID`, `FirstName`, `Name`, `BirthDate`, `Address1`, `Address2`, `PostalCode`, `City`, `Country`, `Phone`, `Email`, `Password`, `admin`) VALUES
+(1, 'louis', 'legendre', '2000-03-08', '1 square du bocage', 'appart 14', '49000', '', 'France', 781690627, 'louis@gmail.com', 'network', 0);
 
 --
 -- Contraintes pour les tables déchargées
@@ -201,12 +208,6 @@ ALTER TABLE `item`
   ADD CONSTRAINT `item_ibfk_2` FOREIGN KEY (`BuyerID`) REFERENCES `user` (`UserID`),
   ADD CONSTRAINT `item_ibfk_4` FOREIGN KEY (`SellerID`) REFERENCES `user` (`UserID`),
   ADD CONSTRAINT `item_ibfk_5` FOREIGN KEY (`SubCategoryID`) REFERENCES `subcategory` (`SubCategoryID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
---
--- Contraintes pour la table `stock`
---
-ALTER TABLE `stock`
-  ADD CONSTRAINT `stock_ibfk_1` FOREIGN KEY (`ItemID`) REFERENCES `item` (`ItemID`);
 
 --
 -- Contraintes pour la table `subcategory`
