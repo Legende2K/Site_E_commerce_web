@@ -1,0 +1,44 @@
+.itemContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 70%;
+    background-color: burlywood;
+    border-radius: 40px;
+    margin: 20px;
+}
+
+.itemPicture{
+    padding: 2%;
+    margin: 2%;
+    border-radius: 20px;
+    background-image: url("../images/fond-bois.png");
+}
+
+.itemInfos{
+    font-family: "Papyrus";
+    font-size: 30px;
+    color: #663906;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    align-items: center;
+    margin-right: 8%;
+}
+
+.itemDescription{
+    font-size: 25px;
+    overflow:auto;
+}
+.addItemCart{
+    text-align: center;
+    background-color: #663906;
+    color: white;
+    padding: 10px  10%;
+    border-radius: 6px;
+    font-family: Papyrus;
+    cursor: pointer;
+}
+
+
