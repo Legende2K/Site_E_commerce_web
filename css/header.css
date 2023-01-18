@@ -76,6 +76,7 @@ header input {
     width: 400px;
     display: flex;
     flex-direction: column;
+    z-index: 20;
     justify-content: center;
     transform: translateX(-45%);
 }
@@ -89,7 +90,7 @@ header input {
     position: absolute;
     max-height: 280px;
     width: 100%;
-    z-index: 10000000000000000000;
+    z-index: 1000000;
 }
 
 .resultBox li {

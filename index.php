@@ -63,39 +63,27 @@ if (isset($_SESSION["error_cart_message"])) {
         </div>
       </div>
       <div id="carousel">
-        <div class="hideLeft">
-          <img src="images\casseroles.jpg" />
-        </div>
+        <div id="picture1" class="hideLeft"></div>
 
-        <div class="prevLeftSecond">
-          <img src="images\ustenciles_silicone.png" />
-        </div>
+        <div id="picture2" class="prevLeftSecond"></div>
 
-        <div class="prev">
-          <img src="images\ustencils_bois.jpg" />
-        </div>
+        <div id="picture3" class="prev"></div>
 
-        <div class="selected">
-          <img src="images\ustencils_metal.jpg" />
-        </div>
+        <div id="picture4" class="selected"></div>
 
-        <div class="next">
-          <img src="images\tiroirs.png" />
-        </div>
+        <div id="picture5" class="next"></div>
 
-        <div class="nextRightSecond">
-          <img src="images\ustenciles_or.png" />
-        </div>
+        <div id="picture6" class="nextRightSecond"></div>
 
-        <div class="hideRight">
-          <img src="images\poeles.jpg" />
-        </div>
+        <div id="picture7" class="hideRight"></div>
       </div>
       <div class="products_list">
 
       </div>
       <div id="partie_droite">
 
+          <span class="bandeau"> - Kittools - Kittools - Kittools - Kittools&nbsp;</span>
+          <span class="bandeau"> - Kittools - Kittools - Kittools - Kittools&nbsp;</span>
       </div>
 
     </div>
@@ -109,6 +97,31 @@ if (isset($_SESSION["error_cart_message"])) {
   </main>
   <?php include "php/components/footer.php"; ?>
 </body>
+<script src="../js/carousel.js"></script>
+<script src="../js/category.js"></script>
+<?php
+  $sql="SELECT COUNT(*) as total FROM item";
+  $nbItems = sql($sql);
+  $total_rows = $nbItems['total'];
+  $random_ids = array();
+  while (count($random_ids) < 7) {
+    $random_id = rand(1, $total_rows);
+    if (!in_array($random_id, $random_ids)) {
+      array_push($random_ids, $random_id);
+    }
+  }
+  $random_ids_string = implode(",", $random_ids);
+  $result = $mysqli->query("SELECT Picture, ItemID FROM item WHERE ItemID IN ($random_ids_string)");
+  for ($i = 1; $i <= 7; $i++) {
+    $data = mysqli_fetch_assoc($result);
+    $picture = $data['Picture'];
+    $idItem = $data['ItemID'];
+    echo "<script>document.getElementById('picture$i').innerHTML = \"<img src='../images/{$picture}'/>\";</script>";
+  }
+?>
+
+
+
 <script>
   function removeLeadingTrailingWhitespaces(name) {
     return name.replace(/(^[\s\n]+|[\s\n]+$)/g, '');
@@ -143,8 +156,6 @@ if (isset($_SESSION["error_cart_message"])) {
     showSubcaterory2();
   <?php } ?>
 </script>
-<script src="../js/carousel.js"></script>
-<script src="../js/category.js"></script>
 <?php
 if (isset($_GET['category'])) {
   //recup id par rapport au nom de la catégorie

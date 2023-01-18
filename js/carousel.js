@@ -24,7 +24,9 @@ function moveToSelected(element) {
     $(prevSecond).prevAll().removeClass().addClass('hideLeft');
   
   }
-  
+  function checkSelected(elementId){
+    return document.getElementById(elementId).classList.contains('selected');
+  }  
   
   $(document).keydown(function(e) {
       switch(e.which) {
@@ -52,3 +54,8 @@ function moveToSelected(element) {
   $('#next').click(function() {
     moveToSelected('next');
   });
+
+  function checkSelected(elementId){
+    return document.getElementById(elementId).classList.contains('selected');
+  }
+
