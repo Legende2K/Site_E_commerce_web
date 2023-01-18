@@ -3,16 +3,7 @@ if (isset($_GET["deleted_item"])) {
     $sql = "DELETE FROM cart WHERE CustomerID = '" . $_SESSION["compte"] . "' AND ItemID = '" . $_GET["deleted_item"] . "'";
     insert($sql);
 
-    $current_url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-    $url_parts = parse_url($current_url);
-    $params = array();
-    parse_str($url_parts['query'], $params);
-    unset($params['deleted_item']);
-
-    $query = http_build_query($params);
-    $new_url = $url_parts['scheme'] . "://" . $url_parts['host'] . $url_parts['path'];
-    if ($query) $new_url .= "?" . $query;
-    header("Location: " . $new_url);
+    removeURLParameter("deleted_item");
     exit();
 }
 ?>

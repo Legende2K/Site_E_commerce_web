@@ -1,35 +1,7 @@
 <?php
 include "php/core.php";
 include "php/functions.php";
-if (isset($_GET["cart_id"])) {
-  if (isset($_SESSION["compte"])) {
-    $sql = "SELECT * FROM `cart` WHERE `CustomerID` = " . $_SESSION["compte"] . " AND `ItemID` = " . $_GET["cart_id"];
-    $result = sql($sql);
-    if ($result) {
-      // Si le produit est déjà dans le panier, on incrémente la quantité
-      $sql = "UPDATE `cart` SET `Quantity` = `Quantity` + 1 WHERE `CustomerID` = " . $_SESSION["compte"] . " AND `ItemID` = " . $_GET["cart_id"];
-      insert($sql);
-    } else {
-      // Sinon on l'ajoute au panier
-      $sql = "INSERT INTO `cart`(`CustomerID`, `ItemID`, `Quantity`) VALUES (" . $_SESSION["compte"] . "," . $_GET["cart_id"] . ",1)";
-      insert($sql);
-    }
-  } else {
-    $_SESSION["error_cart_message"] = "Vous devez être connecté pour ajouter un produit au panier.";
-  }
-
-  $current_url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-    $url_parts = parse_url($current_url);
-    $params = array();
-    parse_str($url_parts['query'], $params);
-    unset($params['cart_id']);
-
-    $query = http_build_query($params);
-    $new_url = $url_parts['scheme'] . "://" . $url_parts['host'] . $url_parts['path'];
-    if ($query) $new_url .= "?" . $query;
-    header("Location: " . $new_url);
-    exit();
-}
+addToCart();
 if (isset($_SESSION["error_cart_message"])) {
   echo "<script>alert('" . $_SESSION["error_cart_message"] . "')</script>";
   unset($_SESSION["error_cart_message"]);
