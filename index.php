@@ -1,6 +1,37 @@
 <?php
 include "php/core.php";
 include "php/functions.php";
+if (isset($_GET["cart_id"])) {
+  if (isset($_SESSION["compte"])) {
+    $sql = "SELECT * FROM `cart` WHERE `CustomerID` = " . $_SESSION["compte"] . " AND `ItemID` = " . $_GET["cart_id"];
+    $result = sql($sql);
+    if ($result) {
+      // Si le produit est déjà dans le panier, on incrémente la quantité
+      $sql = "UPDATE `cart` SET `Quantity` = `Quantity` + 1 WHERE `CustomerID` = " . $_SESSION["compte"] . " AND `ItemID` = " . $_GET["cart_id"];
+      insert($sql);
+    } else {
+      // Sinon on l'ajoute au panier
+      $sql = "INSERT INTO `cart`(`CustomerID`, `ItemID`, `Quantity`) VALUES (" . $_SESSION["compte"] . "," . $_GET["cart_id"] . ",1)";
+      insert($sql);
+    }
+  } else {
+    $_SESSION["error_cart_message"] = "Vous devez être connecté pour ajouter un produit au panier.";
+  }
+
+  $params = $_GET;
+  unset($params['cart_id']);
+  $new_url = "http://kittools/index.php?";
+  foreach ($params as $key => $value) {
+    $new_url .= $key . "=" . $value . "&";
+  }
+  $new_url = rtrim($new_url, "&");
+  header("Location: " . $new_url);
+  exit();
+}
+if (isset($_SESSION["error_cart_message"])) {
+  echo "<script>alert('" . $_SESSION["error_cart_message"] . "')</script>";
+  unset($_SESSION["error_cart_message"]);
+}
 ?>
 <html lang="fr">
 
@@ -87,7 +118,7 @@ include "php/functions.php";
         </div>
       </div>
       <div class="products_list">
-        
+
       </div>
       <div id="partie_droite">
 
@@ -115,6 +146,10 @@ include "php/functions.php";
       const name = subCategories2[i].innerHTML
       window.location.href = "index.php?category=" + removeLeadingTrailingWhitespaces(name);
     });
+  }
+
+  function goToItem(id) {
+    window.location.href = "../item.php?id=" + id;
   }
 
   function showSubcaterory2() {
@@ -147,11 +182,21 @@ if (isset($_GET['category'])) {
   $result = $mysqli->query($sql);
   $innerHTML = "";
   while ($row = $result->fetch_assoc()) {
-    $innerHTML = $innerHTML . '<form action="" class="product"><div class="image_product"><img src="images/' . $row['Picture'] .  '"></div><div class="content"><h4 class="name">' . $row['Name'] . '</h4><h2 class="price">' . $row['Price'] . '€</h2><h4 onclick="showCart()" class="id_product">Ajouter au panier</h4></div></form>';
+    $innerHTML = $innerHTML . '<form action="" id="' . $row["ItemID"] . '" class="product" onclick="goToItem(' . $row["ItemID"] . ')"><div class="image_product"><img src="images/' . $row['Picture'] .  '"></div><div class="content"><h4 class="name">' . $row['Name'] . '</h4><h2 class="price">' . $row['Price'] . '€</h2><h4 class="id_product">Ajouter au panier</h4></div></form>';
   }
 
   echo "<script>document.getElementsByClassName('products_list')[0].innerHTML = '" . $innerHTML . "';</script>";
 }
 ?>
+<script>
+  const id_products = document.getElementsByClassName("id_product");
+  for (let i = 0; i < id_products.length; i++) {
+    id_products[i].addEventListener("click", function() {
+      event.preventDefault();
+      event.stopPropagation();
+      window.location.href = window.location.href + "&cart_id=" + id_products[i].parentElement.parentElement.id;
+    });
+  }
+</script>
 
 </html>

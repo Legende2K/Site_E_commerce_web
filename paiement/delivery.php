@@ -1,4 +1,8 @@
-<html lang="en">
+<?php
+include "../php/core.php";
+include "../php/functions.php";
+?>
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">

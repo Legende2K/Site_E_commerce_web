@@ -17,6 +17,18 @@ header p {
     color: black;
 }
 
+.text-container p {
+    font-size: 15px;
+    display: -webkit-box; /* pour webkit */
+    -webkit-line-clamp: 2; /* limite à 2 lignes */
+    -webkit-box-orient: vertical; /* pour webkit */
+    overflow: hidden; /* masque le dépassement */
+}
+
+.text-container span {
+    font-size: 12px;
+}
+
 input:focus-visible {
     outline: none;
 }
@@ -42,7 +54,7 @@ header h1 {
     color: #663906;
     padding-left: 20px;
     cursor: pointer;
-    -webkit-user-select: none; /* Safari */        
+    -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+/Edge */
     user-select: none; /* Standard */
@@ -83,6 +95,7 @@ header input {
     width: 100%;
     background-color: white;
     padding: 10px 0px;
+    cursor: pointer;
 }
 
 .resultBox li:hover {
@@ -122,18 +135,21 @@ header i {
 }
 
 .cart_item img {
-    max-width: 50px;
     max-height: 50px;
 }
 
 #pay_button {
     display: flex;
     flex-direction: row;
-    gap: 8px;
-    align-items: center;
     justify-content: right;
     padding-top: 10px;
+}
+
+#pay_button div {
+    display: flex;
     cursor: pointer;
+    gap: 8px;
+    align-items: center;
 }
 
 #pay_button i {
