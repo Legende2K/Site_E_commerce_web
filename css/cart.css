@@ -4,7 +4,7 @@ main {
     align-items: center;
 }
 
-#progress-bar {
+#progress_bar {
     position: relative;
     width: 700px;
     height: 15px;

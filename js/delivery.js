@@ -3,7 +3,6 @@ function validateForm() {
     const address = document.getElementById("address1");
     const zip = document.getElementById("zip");
     const city = document.getElementById("city");
-    const state = document.getElementById("state");
     const country = document.getElementById("country");
     let validate = true;
     if (name.value == "") {
@@ -29,12 +28,6 @@ function validateForm() {
         validate = false;
     } else {
         city.classList.remove("error");
-    }
-    if (state.value == "") {
-        state.classList.add("error");
-        validate = false;
-    } else {
-        state.classList.remove("error");
     }
     if (country.value == "") {
         country.classList.add("error");
