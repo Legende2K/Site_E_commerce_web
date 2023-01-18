@@ -18,15 +18,17 @@ if (isset($_GET["cart_id"])) {
     $_SESSION["error_cart_message"] = "Vous devez être connecté pour ajouter un produit au panier.";
   }
 
-  $params = $_GET;
-  unset($params['cart_id']);
-  $new_url = "http://kittools/index.php?";
-  foreach ($params as $key => $value) {
-    $new_url .= $key . "=" . $value . "&";
-  }
-  $new_url = rtrim($new_url, "&");
-  header("Location: " . $new_url);
-  exit();
+  $current_url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    $url_parts = parse_url($current_url);
+    $params = array();
+    parse_str($url_parts['query'], $params);
+    unset($params['cart_id']);
+
+    $query = http_build_query($params);
+    $new_url = $url_parts['scheme'] . "://" . $url_parts['host'] . $url_parts['path'];
+    if ($query) $new_url .= "?" . $query;
+    header("Location: " . $new_url);
+    exit();
 }
 if (isset($_SESSION["error_cart_message"])) {
   echo "<script>alert('" . $_SESSION["error_cart_message"] . "')</script>";
