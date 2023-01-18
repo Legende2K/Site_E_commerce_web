@@ -105,9 +105,9 @@ if (isset($_SESSION["error_cart_message"])) {
   $total_rows = $nbItems['total'];
   $random_ids = array();
   while (count($random_ids) < 7) {
-    $random_id = rand(1, $total_rows);
-    if (!in_array($random_id, $random_ids)) {
-      array_push($random_ids, $random_id);
+    $random_id1 = rand(1, $total_rows);
+    if (!in_array($random_id1, $random_ids)) {
+      array_push($random_ids, $random_id1);
     }
   }
   $random_ids_string = implode(",", $random_ids);
