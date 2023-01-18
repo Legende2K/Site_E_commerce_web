@@ -1,7 +1,7 @@
 <?php
 include "php/core.php";
 include "php/functions.php";
-
+addToCart();
 if (isset($_GET["id"])) {
     $id = $_GET["id"];
     $sql = "SELECT * FROM item WHERE ItemID = $id";
@@ -35,7 +35,7 @@ if (isset($_GET["id"])) {
                 <h3 class=itemPrice>Prix : <?=$item['Price']?> €</h3>
                 <div class="itemStarRate"></div>
                 <div class=itemDescription><?=$item['Description']?></div>
-                <h4 class=addItemCart onclick="showCart()">Ajouter au panier</h4>
+                <h4 class=addItemCart onclick='window.location.href = window.location.href + "&cart_id=" + <?php echo $_GET["id"]?>'>Ajouter au panier</h4>
             </div>
         </div>
     </main>

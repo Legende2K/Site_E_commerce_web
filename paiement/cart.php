@@ -60,8 +60,6 @@ if (isset($_SESSION["compte"])) {
     echo '<script>document.querySelector("#cart_count").innerHTML = "' . $result->num_rows . '"</script>';
     $nb = $result->num_rows;
     $i = 0;
-    pr($nb);
-    pr($nb == 0);
     if ($nb == 0) {
         echo '<script>document.querySelector("#articles").innerHTML = "<p>Aucun item dans le panier</p>"</script>';
     } else {
