@@ -81,7 +81,6 @@ if (isset($_SESSION["error_cart_message"])) {
 
       </div>
       <div id="partie_droite">
-
           <span class="bandeau"> - Kittools - Kittools - Kittools - Kittools&nbsp;</span>
           <span class="bandeau"> - Kittools - Kittools - Kittools - Kittools&nbsp;</span>
       </div>
@@ -97,7 +96,6 @@ if (isset($_SESSION["error_cart_message"])) {
   </main>
   <?php include "php/components/footer.php"; ?>
 </body>
-<script src="../js/carousel.js"></script>
 <script src="../js/category.js"></script>
 <?php
   $sql="SELECT COUNT(*) as total FROM item";
@@ -119,7 +117,16 @@ if (isset($_SESSION["error_cart_message"])) {
     echo "<script>document.getElementById('picture$i').innerHTML = \"<img src='../images/{$picture}'/>\";</script>";
   }
 ?>
-
+<script>
+  const pictures = document.querySelectorAll("#carousel div");
+  for (let i = 0; i < pictures.length; i++) {
+    pictures[i].addEventListener("click", function() {
+      if (pictures[i].classList.contains("selected")) {
+        window.location.href = "../item.php?id=" + pictures[i].id.substring(7);
+      }
+    });
+  }
+</script>
 
 
 <script>
@@ -183,5 +190,5 @@ if (isset($_GET['category'])) {
     });
   }
 </script>
-
+<script src="../js/carousel.js"></script>
 </html>

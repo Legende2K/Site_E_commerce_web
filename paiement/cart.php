@@ -1,6 +1,8 @@
 <?php
 include "../php/core.php";
 include "../php/functions.php";
+minusQuantity();
+plusQuantity();
 ?>
 <html lang="fr">
 
@@ -19,7 +21,7 @@ include "../php/functions.php";
 <body>
     <?php include "../php/components/header.php"; ?>
     <main>
-        <div id="progress-bar">
+        <div id="progress_bar">
             <div id="progress"></div>
             <div id="steps">
                 <div class="step active" id="step-1">
@@ -42,7 +44,6 @@ include "../php/functions.php";
             <!-- recap des articles -->
         </div>
         <div id="total_price_items">
-            <p>Total : 65,94 €</p>
         </div>
         <div id="paiement" onclick="goToPaiement()">
             <p>Passez la commande</p>
@@ -61,12 +62,12 @@ if (isset($_SESSION["compte"])) {
     $nb = $result->num_rows;
     $i = 0;
     if ($nb == 0) {
-        echo '<script>document.querySelector("#articles").innerHTML = "<p>Aucun item dans le panier</p>"</script>';
+        echo '<script>document.querySelector("main").innerHTML = "<div id=\'progress_bar\'>" + document.querySelector("#progress_bar").innerHTML + "</div><div><p>Aucun item dans le panier</p></div>"</script>';
     } else {
         while ($row = $result->fetch_assoc()) {
             $sql = "SELECT * FROM item WHERE ItemID = '" . $row["ItemID"] . "'";
             $result2 = sql($sql);
-            $itemsString .= "<div style= 'display: flex; justify-content: center;grid-column:" . ($i%2 + 1) . "; grid-row:" . (floor($i/2) + 1) . ";'><li class='article' id='" . $result2["ItemID"] . "'><img src='../images/" . $result2["Picture"] . "'><p>" . strtoupper($result2["Name"]) . "<br>" . $result2["Price"] . " €</p><div class='qte_article'><p>Quantité:</p><div class='qte_article_nb'><i class='fa-solid fa-minus'></i><p>" . $row["Quantity"] . "</p><i class='fa-solid fa-plus'></i></div></div><p class='total_price'>Prix total:<br>" . ($result2["Price"] * $row["Quantity"]) . "€</p><i class='fa-solid fa-xmark'></i></li></div>";
+            $itemsString .= "<div style= 'display: flex; justify-content: center;grid-column:" . ($i%2 + 1) . "; grid-row:" . (floor($i/2) + 1) . ";'><li class='article' id='" . $result2["ItemID"] . "'><img src='../images/" . $result2["Picture"] . "'><p>" . mb_strtoupper($result2["Name"]) . "<br>" . $result2["Price"] . " €</p><div class='qte_article'><p>Quantité:</p><div class='qte_article_nb'><i class='fa-solid fa-minus'></i><p>" . $row["Quantity"] . "</p><i class='fa-solid fa-plus'></i></div></div><p class='total_price'>Prix total:<br>" . ($result2["Price"] * $row["Quantity"]) . "€</p><i class='fa-solid fa-xmark'></i></li></div>";
             $i++;
             $total_articles += $result2["Price"] * $row["Quantity"];
         }
@@ -74,7 +75,30 @@ if (isset($_SESSION["compte"])) {
         echo '<script>document.querySelector("#total_price_items").innerHTML = "Total : ' . $total_articles . ' €"</script>';
     }
 } else {
-    echo '<script>document.querySelector("#articles").innerHTML = "<p>Vous n\'êtes pas connecté</p>"</p>"</script>';
+    echo '<script>document.querySelector("#articles").innerHTML = "<p>Vous n\'êtes pas connecté</p>"</p>"; document.getElementById("paiement").disabled = true;</script>';
+    echo '<script>document.getElementById("paiement").disabled = true</script>';
 }
 ?>
+<script>
+    const deleted_buttons2 = document.querySelectorAll(".fa-xmark");
+    for (let i = 0; i < deleted_buttons2.length; i++) {
+        deleted_buttons2[i].addEventListener("click", function() {
+            addParameterToURL("deleted_item", deleted_buttons2[i].parentElement.id);
+        });
+    }
+
+    const plus_buttons = document.querySelectorAll(".fa-plus");
+    for (let i = 0; i < plus_buttons.length; i++) {
+        plus_buttons[i].addEventListener("click", function() {
+            addParameterToURL("plus_item", plus_buttons[i].parentElement.parentElement.parentElement.id);
+        });
+    }
+
+    const minus_buttons = document.querySelectorAll(".fa-minus");
+    for (let i = 0; i < minus_buttons.length; i++) {
+        minus_buttons[i].addEventListener("click", function() {
+            addParameterToURL("minus_item", minus_buttons[i].parentElement.parentElement.parentElement.id);
+        });
+    }
+</script>
 </html>
