@@ -37,12 +37,22 @@ footer h3{
     margin-top: 5px;
 }
 
+#palette_footer h5{
+    margin: 15px;
+    cursor: pointer;
+}
+
+#palette_footer h5:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.5px;
+}
+
 #credits{
     display: flex;
     flex-direction: row;
     justify-content: center;
     padding: 10px;
-    background-color: #70420e;
 }
 
 #credits p {
