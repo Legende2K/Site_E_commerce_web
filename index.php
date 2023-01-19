@@ -86,16 +86,11 @@ if (isset($_SESSION["error_cart_message"])) {
           </div>
         </div>
       </div>
-      
-      
       <div id="partie_droite">
           <span class="bandeau"> - Kittools - Kittools - Kittools - Kittools&nbsp;</span>
           <span class="bandeau"> - Kittools - Kittools - Kittools - Kittools&nbsp;</span>
       </div>
-
     </div>
-
-    
   </main>
   <?php include "php/components/footer.php"; ?>
 </body>
@@ -158,7 +153,7 @@ if (isset($_SESSION["error_cart_message"])) {
     }
     var productsList = document.getElementsByClassName("products_list");
     for (var j = 0; j < productsList.length; j++) {
-      productsList[j].style.display = "flex";
+      productsList[j].style.display = "grid";
     }
   }
 
@@ -176,8 +171,10 @@ if (isset($_GET['category'])) {
   $sql = "SELECT * FROM item WHERE SubCategoryID = '" . $result["SubCategoryID"] . "'";
   $result = $mysqli->query($sql);
   $innerHTML = "";
+  $i = 0;
   while ($row = $result->fetch_assoc()) {
-    $innerHTML = $innerHTML . '<form action="" id="' . $row["ItemID"] . '" class="product" onclick="goToItem(' . $row["ItemID"] . ')"><div class="image_product"><img src="images/' . $row['Picture'] .  '"></div><div class="content"><h4 class="name">' . $row['Name'] . '</h4><h2 class="price">' . $row['Price'] . '€</h2><h4 class="id_product">Ajouter au panier</h4></div></form>';
+    $innerHTML = $innerHTML . '<form style="grid-column:' . ($i%3 + 1) . '; grid-row:' . (floor($i/3) + 1) . ';" id="' . $row["ItemID"] . '" class="product" onclick="goToItem(' . $row["ItemID"] . ')"><div class="image_product"><img src="images/' . $row['Picture'] .  '"></div><div class="content"><h4 class="name">' . $row['Name'] . '</h4><h2 class="price">' . $row['Price'] . '€</h2><h4 class="id_product">Ajouter au panier</h4></div></form>';
+    $i++;
   }
 
   echo "<script>document.getElementsByClassName('products_list')[0].innerHTML = '" . $innerHTML . "';</script>";

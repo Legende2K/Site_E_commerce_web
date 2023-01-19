@@ -43,7 +43,6 @@
 /* Carousel */
 
 #carousel, #partieCentre{
-  height: 500px;
   top: 50%;
   overflow: hidden;
   width: 70%;
@@ -199,16 +198,10 @@
 }
 
 .products_list {
-  margin: 50px auto;
-  position: relative;
-  width: 70%;
-  height: 400px;
-  /* va devenir display: flex */
   display: none;
-  flex-direction: row;
-  gap: 25px;
-
-
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 25px;
+  padding: 30px;
 }
 
 .product {
