@@ -170,11 +170,21 @@ if (isset($_GET['category'])) {
   //recup items par rapport à l'id de la catégorie
   $sql = "SELECT * FROM item WHERE SubCategoryID = '" . $result["SubCategoryID"] . "'";
   $result = $mysqli->query($sql);
+  $nb = $result->num_rows;
   $innerHTML = "";
   $i = 0;
   while ($row = $result->fetch_assoc()) {
-    $innerHTML = $innerHTML . '<form style="grid-column:' . ($i%3 + 1) . '; grid-row:' . (floor($i/3) + 1) . ';" id="' . $row["ItemID"] . '" class="product" onclick="goToItem(' . $row["ItemID"] . ')"><div class="image_product"><img src="images/' . $row['Picture'] .  '"></div><div class="content"><h4 class="name">' . $row['Name'] . '</h4><h2 class="price">' . $row['Price'] . '€</h2><h4 class="id_product">Ajouter au panier</h4></div></form>';
+    if ($nb == 1) {
+      $innerHTML = $innerHTML . '<form style="grid-column:2; grid-row:1;" id="' . $row["ItemID"] . '" class="product" onclick="goToItem(' . $row["ItemID"] . ')"><div class="image_product"><img src="images/' . $row['Picture'] .  '"></div><div class="content"><h4 class="name">' . $row['Name'] . '</h4><h2 class="price">' . $row['Price'] . '€</h2><h4 class="id_product">Ajouter au panier</h4></div></form>';
+    } else if ($nb ==2) {
+      $innerHTML = $innerHTML . '<form style="grid-column:' . ($i%3 + 2) . '; grid-row:' . (floor($i/3) + 1) . ';" id="' . $row["ItemID"] . '" class="product" onclick="goToItem(' . $row["ItemID"] . ')"><div class="image_product"><img src="images/' . $row['Picture'] .  '"></div><div class="content"><h4 class="name">' . $row['Name'] . '</h4><h2 class="price">' . $row['Price'] . '€</h2><h4 class="id_product">Ajouter au panier</h4></div></form>';
+    } else {
+      $innerHTML = $innerHTML . '<form style="grid-column:' . ($i%3 + 1) . '; grid-row:' . (floor($i/3) + 1) . ';" id="' . $row["ItemID"] . '" class="product" onclick="goToItem(' . $row["ItemID"] . ')"><div class="image_product"><img src="images/' . $row['Picture'] .  '"></div><div class="content"><h4 class="name">' . $row['Name'] . '</h4><h2 class="price">' . $row['Price'] . '€</h2><h4 class="id_product">Ajouter au panier</h4></div></form>';
+    }
     $i++;
+  }
+  if ($nb == 2) {
+    echo "<script>document.getElementsByClassName('products_list')[0].style.gridTemplateColumns = '1fr 2fr 2fr 1fr';</script>";
   }
 
   echo "<script>document.getElementsByClassName('products_list')[0].innerHTML = '" . $innerHTML . "';</script>";
