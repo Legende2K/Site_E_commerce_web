@@ -77,7 +77,7 @@ main i {
     font-size: 25px;
 }
 
-#profil_container, #address_container, #email_modifier_container, #password_modifier_container {
+.container, #email_modifier_container, #password_modifier_container {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -160,4 +160,23 @@ main i {
 
 .error {
     border: 2px solid red !important;
+}
+
+.order_container {
+    display: flex;
+    border: 1px solid black;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.order_container p {
+    font-size: 23px;
+}
+
+.order_container i {
+    color: black;
+    font-size: 30px;
+    cursor: pointer;
 }

@@ -41,19 +41,24 @@ delFromCart();
 </header>
 <?php
 if (isset($_SESSION["compte"])) {
-    $sql = "SELECT * FROM cart WHERE CustomerID = '" . $_SESSION['compte'] . "'";
-    $result = $mysqli->query($sql);
+    $sql = "SELECT * FROM totalcart WHERE OrderID = '" . $_SESSION['order'] . "'";
+    $carts = $mysqli->query($sql);
+
     $itemsString = "";
     $nb_produit = 0;
-    $nb = $result->num_rows;
+    $nb = $carts->num_rows;
     if ($nb == 0) {
         echo '<script>document.querySelector("#cart_items").innerHTML = "<p style=\'width: max-content\'>Aucun item dans le panier</p>"</script>';
     } else {
-        while ($row = $result->fetch_assoc()) {
-            $sql = "SELECT * FROM item WHERE ItemID = '" . $row["ItemID"] . "'";
-            $result2 = sql($sql);
-            $nb_produit += $row["Quantity"];
-            $itemsString .= "<li class='cart_item' id='" . $result2["ItemID"] . "'><img src='../images/" . $result2["Picture"] . "'><div class='text-container'><p>" . mb_strtoupper($result2["Name"]) . "</p><span>10,99€</span></div><p class='qte_item'>Qte : " . $row["Quantity"] . "</p><i class='fa-solid fa-xmark deleted_button'></i></li>";
+        while ($row = $carts->fetch_assoc()) {
+            $sql = "SELECT * FROM cart WHERE CartID = '" . $row['CartID'] . "'";
+            $cartItem = sql($sql);
+
+            $sql = "SELECT * FROM item WHERE ItemID = '" . $cartItem["ItemID"] . "'";
+            $itemDetail = sql($sql);
+
+            $nb_produit += $cartItem["Quantity"];
+            $itemsString .= "<li class='cart_item' id='" . $itemDetail["ItemID"] . "'><img src='../images/" . $itemDetail["Picture"] . "'><div class='text-container'><p>" . mb_strtoupper($itemDetail["Name"]) . "</p><span>10,99€</span></div><p class='qte_item'>Qte : " . $cartItem["Quantity"] . "</p><i class='fa-solid fa-xmark deleted_button'></i></li>";
         }
         $itemsString .= "<div id='pay_button'><div onclick='goToCart()'><p>Payez</p><i class='fa-solid fa-arrow-right'></i></div></div>";
         echo '<script>document.querySelector("#cart_items").innerHTML = "' . $itemsString . '"</script>';

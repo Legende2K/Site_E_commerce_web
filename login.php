@@ -19,6 +19,12 @@ if (isset($_GET["email"]) && isset($_GET["password"])) {
         $result = sql($sql);
         if ($result) {
             $_SESSION["compte"] = $result["UserID"];
+
+            //gerer la commande
+            $sql = "SELECT * FROM orders WHERE UserID = " . $_SESSION["compte"] . " AND Status = 'unpaid'";
+            $result = sql($sql);
+            $_SESSION["order"] = $result["OrderID"];
+
             header("Location: ../profil.php");
         } else {
             $_PASSWORD_ERROR = "Mot de passe incorrect";
