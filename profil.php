@@ -212,8 +212,43 @@ if (isset($_SESSION["compte"])) {
                     </div>
                 </div>
                 <div id="orders_container" class="container">
+                    <p class="subtitle">Mes commandes</p>
+                    <?php 
+                    //recup les orders
+                    global $mysqli;
+                    $sql = "SELECT * FROM orders WHERE UserID = ".$_SESSION["compte"]." ORDER BY Status, Date DESC";
+                    $orders = $mysqli->query($sql);
+                    if ($orders->num_rows == 0) {
+                        echo "<p>Vous n'avez pas encore passé de commande</p>";
+                    }
+                    while ($order = $orders->fetch_assoc()) {
+                        $sql = "SELECT * FROM totalcart WHERE OrderID = ".$order["OrderID"];
+                        $items_carts = $mysqli->query($sql); ?>
+                        <div class="order_container">
+                            <div class="date_total_price">
+                                <p>Commande <?php echo ($order["Status"] == "unpaid" ? " en cours" : "du ".$order["Date"]) ?></p>
+                                <p>Total : 50€</p>
+                            </div>
+                            <div class="status">
+                                <p><?php if($order["Status"] == "unpaid") {
+                                    echo "Non payée";
+                                } else if ($order["Status"] == "delivering") {
+                                    echo "En cours de livraison";
+                                } else if ($order["Status"] == "delivered") {
+                                    echo "Livrée";
+                                } else if ($order["Status"] == "canceled") {
+                                    echo "Error";
+                                } ?></p>
+                            </div>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    <?php } ?>
+                </div>
+                <div id="order_details_container" class="container">
+
                 </div>
                 <div id="sales_container" class="container">
+                    <p class="subtitle">Mes ventes</p>
                 </div>
             </div>
         </div>

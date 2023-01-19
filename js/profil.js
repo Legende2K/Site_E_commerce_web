@@ -14,6 +14,7 @@ const sales_container = document.querySelector("#sales_container");
 
 const email_modifier_container = document.querySelector("#email_modifier_container");
 const password_modifier_container = document.querySelector("#password_modifier_container");
+const orders_details_container = document.querySelector("#orders_details_container");
 
 const containers = document.querySelectorAll(".container");
 const buttons = document.querySelectorAll(".part");
@@ -56,6 +57,9 @@ function showContainer(nb) {
             containers.forEach(container => container.style.display = "none");
             password_modifier_container.style.display = "flex";
             break;
+        case 7:
+            containers.forEach(container => container.style.display = "none");
+            orders_details_container.style.display = "flex";
         default:
             console.log("Error");
             break;

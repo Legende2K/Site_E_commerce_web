@@ -1,6 +1,24 @@
 <?php
 include "../php/core.php";
 include "../php/functions.php";
+if (isset($_GET["validate"])) {
+    //passer la statut unpaid à delivering
+    $sql = "UPDATE `orders` SET `Status` = 'delivering' WHERE `OrderID` = " . $_SESSION["order"];
+    insert($sql);
+
+    //modifier la date de commande
+    $sql = "UPDATE `orders` SET `Date` = CURRENT_TIMESTAMP WHERE `OrderID` = " . $_SESSION["order"];
+    insert($sql);
+
+    //créer une nouvelle commande
+    global $mysqli;
+    $sql = "INSERT INTO `orders` (`UserID`, `Status`, `Date`) VALUES ('" . $_SESSION["compte"] . "', 'unpaid', CURRENT_TIMESTAMP)";
+    $mysqli->query($sql);
+    $_SESSION["order"] = $mysqli->insert_id;
+    
+    echo "<script>alert('Votre commande a été validée !')</script>";
+    header("Location: ../index.php");
+}
 ?>
 <html lang="fr">
 <head>

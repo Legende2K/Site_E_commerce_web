@@ -9,8 +9,7 @@ function changePersonalInformations($name, $firstname, $phone) {
 function changeAddress($address, $complementary_address, $zip, $city, $country) {
     global $mysqli;
 
-    //TODO : city
-    $sql = "UPDATE user SET address1 = '$address', address2 = '$complementary_address', postalCode = '$zip', /*city = '$city',*/ country = '$country' WHERE UserID = '$_SESSION[compte]'";
+    $sql = "UPDATE user SET address1 = '$address', address2 = '$complementary_address', postalCode = '$zip', city = '$city', country = '$country' WHERE UserID = '$_SESSION[compte]'";
     $mysqli->query($sql);
 }
 

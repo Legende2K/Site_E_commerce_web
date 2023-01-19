@@ -36,6 +36,19 @@ function insert($requete)
   }
 }
 
+function sqlCount($requete) {
+  global $mysqli;
+
+  $result = $mysqli->query($requete);
+  if (!$result) {
+    exit($mysqli->error);
+  } else {
+    $row = $result->fetch_assoc();
+    $count = $row["COUNT(*)"];
+    return $count;
+  }
+}
+
 function removeURLParameter($keyParams)
 {
   $current_url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];

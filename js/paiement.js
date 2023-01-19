@@ -47,6 +47,6 @@ function validateForm() {
         name_on_card.classList.remove("error");
     }
     if (validate) {
-        window.location.href = "../index.php";
+        addParameterToURL("validate", "true");
     }
 }

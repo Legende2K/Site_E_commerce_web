@@ -23,11 +23,14 @@ if (isset($_GET["email"]) && isset($_GET["password"]) && isset($_GET["name"]) &&
     if ($result) {
         $_EMAIL_ERROR = "Email déjà utilisé";
     } else {
-        //TODO : add city
-        global $mysqli;
-        $sql = "INSERT INTO user (email, password, firstname, name, birthdate, address1, address2, postalCode, /*city,*/ country, phone) VALUES ('$email', '$password', '$firstname', '$name', '$birthdate', '$address1', '$address2', '$postalCode', /*'$city',*/ '$country', '$phone')";
-        $mysqli->query($sql);
+        $sql = "INSERT INTO user (email, password, firstname, name, birthdate, address1, address2, postalCode, city, country, phone) VALUES ('$email', '$password', '$firstname', '$name', '$birthdate', '$address1', '$address2', '$postalCode', '$city', '$country', '$phone')";
+        insert($sql);
         $_SESSION["compte"] = $mysqli -> insert_id;
+
+        $sql = "INSERT INTO Orders (UserId) VALUES (" . $_SESSION["compte"] . ")";
+        insert($sql);
+        $_SESSION["order"] = $mysqli -> insert_id;
+
         header("Location: ../profil.php");
     }
 }
@@ -91,7 +94,7 @@ if (isset($_GET["email"]) && isset($_GET["password"]) && isset($_GET["name"]) &&
                         <input type="text" id="country" name="country" required>
                     </div>
                     <label for="phone">Numéro de téléphone</label>
-                    <input type="number" id="phone" name="phone">
+                    <input type="number" id="phone" name="phone" required>
                     <input type="submit" value="S'inscrire">
                     <input type="button" value="Connexion" onclick="window.location.href = '../login.php';">
                 </form>
