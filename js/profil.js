@@ -14,7 +14,7 @@ const sales_container = document.querySelector("#sales_container");
 
 const email_modifier_container = document.querySelector("#email_modifier_container");
 const password_modifier_container = document.querySelector("#password_modifier_container");
-const orders_details_container = document.querySelector("#orders_details_container");
+const orders_details_container = document.querySelector("#order_details_container");
 
 const containers = document.querySelectorAll(".container");
 const buttons = document.querySelectorAll(".part");
@@ -57,13 +57,18 @@ function showContainer(nb) {
             containers.forEach(container => container.style.display = "none");
             password_modifier_container.style.display = "flex";
             break;
-        case 7:
-            containers.forEach(container => container.style.display = "none");
-            orders_details_container.style.display = "flex";
         default:
             console.log("Error");
             break;
     }
+}
+
+function showOrderDetails(id) {
+    containers.forEach(container => container.style.display = "none");
+    orders_details_container.style.display = "flex";
+    document.querySelectorAll(".order_details").forEach(order_details => order_details.style.display = "none");
+    document.querySelector("#order" + id).style.display = "grid";
+    orders_details_container.querySelector(".subtitle").innerHTML = "Détail de la commande " + document.querySelector("#order" + id).classList[1];
 }
 
 function logout() {

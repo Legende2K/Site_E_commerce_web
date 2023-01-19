@@ -24,7 +24,7 @@ if (isset($_GET["old_email"]) && isset($_GET["new_email"]) && isset($_GET["confi
             changeEmail($_GET["new_email"]);
             header("Location: profil.php");
         }
-    }    
+    }
 }
 if (isset($_GET["confirm_email"]) && isset($_GET["old_password"]) && isset($_GET["new_password"]) && isset($_GET["confirm_new_password"])) {
     $_CONFIRM_EMAIL_ERROR = "";
@@ -211,41 +211,58 @@ if (isset($_SESSION["compte"])) {
                         <p>Enregistrer</p>
                     </div>
                 </div>
+                <div id="order_details_container" class="container">
+                    <p class="subtitle"></p>
+                </div>
                 <div id="orders_container" class="container">
                     <p class="subtitle">Mes commandes</p>
-                    <?php 
+                    <?php
                     //recup les orders
                     global $mysqli;
-                    $sql = "SELECT * FROM orders WHERE UserID = ".$_SESSION["compte"]." ORDER BY Status, Date DESC";
+                    $sql = "SELECT * FROM orders WHERE UserID = " . $_SESSION["compte"] . " ORDER BY Status, Date DESC";
                     $orders = $mysqli->query($sql);
                     if ($orders->num_rows == 0) {
                         echo "<p>Vous n'avez pas encore passé de commande</p>";
                     }
                     while ($order = $orders->fetch_assoc()) {
-                        $sql = "SELECT * FROM totalcart WHERE OrderID = ".$order["OrderID"];
+                        $sql = "SELECT * FROM totalcart WHERE OrderID = " . $order["OrderID"];
                         $items_carts = $mysqli->query($sql); ?>
                         <div class="order_container">
                             <div class="date_total_price">
-                                <p>Commande <?php echo ($order["Status"] == "unpaid" ? " en cours" : "du ".$order["Date"]) ?></p>
+                                <p>Commande <?php echo ($order["Status"] == "unpaid" ? " en cours" : "du " . sqlToFrenchDate($order["Date"])) ?></p>
                                 <p>Total : 50€</p>
                             </div>
                             <div class="status">
-                                <p><?php if($order["Status"] == "unpaid") {
-                                    echo "Non payée";
-                                } else if ($order["Status"] == "delivering") {
-                                    echo "En cours de livraison";
-                                } else if ($order["Status"] == "delivered") {
-                                    echo "Livrée";
-                                } else if ($order["Status"] == "canceled") {
-                                    echo "Error";
-                                } ?></p>
+                                <p><?php if ($order["Status"] == "unpaid") {
+                                        echo "Non payée";
+                                    } else if ($order["Status"] == "delivering") {
+                                        echo "En cours de livraison";
+                                    } else if ($order["Status"] == "delivered") {
+                                        echo "Livrée";
+                                    } else if ($order["Status"] == "canceled") {
+                                        echo "Error";
+                                    } ?></p>
                             </div>
-                            <i class="fa-solid fa-arrow-right"></i>
+                            <div class="left_arrow">
+                                <i class="fa-solid fa-arrow-right" onclick="showOrderDetails(<?php echo $order['OrderID'] ?>)"></i>
+                            </div>
                         </div>
-                    <?php } ?>
-                </div>
-                <div id="order_details_container" class="container">
-
+                        <script>
+                            document.querySelector("#order_details_container").innerHTML += "<div class='order_details <?php echo sqlToFrenchDate($order["Date"]) ?>' id='order<?php echo $order['OrderID'] ?>'></div>";
+                        </script>
+                    <?php
+                        $sql = "SELECT cart.* FROM cart INNER JOIN totalcart ON cart.CartID = totalcart.CartID INNER JOIN orders ON totalcart.OrderID = orders.OrderID WHERE orders.OrderID = " . $order["OrderID"];
+                        $carts = $mysqli->query($sql);
+                        $innerHTMLString = "<p style='grid-row: 1;grid-column:3'>Prix unitaire</p><p style='grid-row: 1;grid-column:4'>Quantité</p><p style='grid-row: 1;grid-column:5'>Total</p>";
+                        $i = 0;
+                        while ($cart = $carts->fetch_assoc()) {
+                            $sql = "SELECT * FROM item WHERE ItemID = " . $cart["ItemID"];
+                            $item = $mysqli->query($sql)->fetch_assoc();
+                            $innerHTMLString .= "<img style='grid-row: ".($i + 2).";grid-column:1' class='order_details_item_image' src='../images/" . $item["Picture"] . "'><div style='grid-row: ".($i + 2).";grid-column:2' class='order_details_item_name'><p>" . $item["Name"] . "</p></div><div style='grid-row: ".($i + 2).";grid-column:3' class='order_details_item_price'><p>" . $item["Price"] . "€</p></div><div style='grid-row: ".($i + 2).";grid-column:4' class='order_details_item_quantity'><p>" . $cart["Quantity"] . "</p></div><div style='grid-row: ".($i + 2).";grid-column:5' class='order_details_item_price'><p>" . ($item["Price"] * $cart["Quantity"]) . "€</p></div>";
+                            $i++;
+                        }
+                        echo "<script>document.querySelector('#order" . $order['OrderID'] . "').innerHTML = \"" . $innerHTMLString . "\";</script>";
+                    } ?>
                 </div>
                 <div id="sales_container" class="container">
                     <p class="subtitle">Mes ventes</p>
@@ -257,25 +274,26 @@ if (isset($_SESSION["compte"])) {
 </body>
 <script src="../js/profil.js"></script>
 <script>
-    <?php if(!empty($_OLD_EMAIL_ERROR)){?>
+    <?php if (!empty($_OLD_EMAIL_ERROR)) { ?>
         showContainer(5);
         document.getElementById("confirm_email").classList.add("error");
     <?php } ?>
-    <?php if(!empty($_CONFIRM_PASSWORD_ERROR)){?>
+    <?php if (!empty($_CONFIRM_PASSWORD_ERROR)) { ?>
         showContainer(5);
         document.getElementById("confirm_password").classList.add("error");
     <?php } ?>
-    <?php if(!empty($_CONFIRM_EMAIL_ERROR)){?>
+    <?php if (!empty($_CONFIRM_EMAIL_ERROR)) { ?>
         showContainer(6);
         document.getElementById("password_confirm_email").classList.add("error");
     <?php } ?>
-    <?php if(!empty($_OLD_PASSWORD_ERROR)){?>
+    <?php if (!empty($_OLD_PASSWORD_ERROR)) { ?>
         showContainer(6);
         document.getElementById("actuel_password").classList.add("error");
     <?php } ?>
-    <?php if(!empty($_CONFIRM_NEW_PASSWORD_ERROR)){?>
+    <?php if (!empty($_CONFIRM_NEW_PASSWORD_ERROR)) { ?>
         showContainer(6);
         document.getElementById("confirm_new_password").classList.add("error");
     <?php } ?>
 </script>
+
 </html>
