@@ -24,8 +24,7 @@ p, label {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-bottom: 10px;
-    background-color: #70420e;
+    padding: 10px;
 }
 
 #icons_reseaux{
@@ -33,6 +32,7 @@ p, label {
     flex-direction: row;
     justify-content: space-between;
     padding-right: 20px;
+    padding-left: 20px;
 }
 
 #icons_reseaux i {
@@ -45,12 +45,12 @@ footer h3{
     margin-top: 5px;
 }
 
-footer h5{
+#palette_footer h5{
     margin: 15px;
     cursor: pointer;
 }
 
-footer h5:hover {
+#palette_footer h5:hover {
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 1.5px;
