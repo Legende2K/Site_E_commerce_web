@@ -116,15 +116,16 @@ if (isset($_SESSION["error_cart_message"])) {
     $data = mysqli_fetch_assoc($result);
     $picture = $data['Picture'];
     $idItem = $data['ItemID'];
-    echo "<script>document.getElementById('picture$i').innerHTML = \"<img src='../images/{$picture}'/>\";</script>";
+    echo "<script>document.getElementById('picture$i').innerHTML = \"<img pictureId='$idItem' src='../images/{$picture}'/>\";</script>";
   }
 ?>
 <script>
   const pictures = document.querySelectorAll("#carousel div");
+  const picturesId = document.querySelectorAll("#carousel img");
   for (let i = 0; i < pictures.length; i++) {
     pictures[i].addEventListener("click", function() {
       if (pictures[i].classList.contains("selected")) {
-        window.location.href = "../item.php?id=" + pictures[i].id.substring(7);
+        window.location.href = "../item.php?id=" + picturesId[i].getAttribute("pictureId");
       }
     });
   }
