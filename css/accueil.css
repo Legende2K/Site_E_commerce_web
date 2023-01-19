@@ -42,11 +42,14 @@
 
 /* Carousel */
 
-#carousel, #partieCentre{
-  top: 50%;
-  overflow: hidden;
+#partieCentre{
   width: 70%;
   background-image: url("../images/fond-bois.png");
+}
+
+#carousel{
+  height: 495px;
+  overflow: hidden;
 }
 
 #carousel div {
