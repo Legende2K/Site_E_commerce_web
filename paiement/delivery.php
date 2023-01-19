@@ -1,6 +1,14 @@
 <?php
 include "../php/core.php";
 include "../php/functions.php";
+//verifier si le panier est vide
+$sql = "SELECT COUNT(*) FROM `totalcart` WHERE `OrderID` = " . $_SESSION["order"];
+$result = sqlCount($sql);
+if ($result == 0) {
+    echo "<script>alert('Votre panier est vide !')</script>";
+    header("Location: ../index.php");
+    exit();
+}
 ?>
 <html lang="fr">
 

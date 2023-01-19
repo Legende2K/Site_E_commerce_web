@@ -15,7 +15,7 @@ plusQuantity();
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/cart.css">
-    <title>Panier - Site E-Commerce</title>
+    <title>Panier - Kittools</title>
 </head>
 
 <body>
@@ -64,7 +64,7 @@ if (isset($_SESSION["compte"])) {
     $i = 0;
     
     if ($nb == 0) {
-        echo '<script>document.querySelector("main").innerHTML = "<div id=\'progress_bar\'>" + document.querySelector("#progress_bar").innerHTML + "</div><div><p>Aucun item dans le panier</p></div>"</script>';
+        echo '<script>document.querySelector("main").innerHTML = "<div id=\'progress_bar\'>" + document.querySelector("#progress_bar").innerHTML + "</div><div style=\'position:absolute;height:100%;top:45%;\'><p>Aucun item dans le panier</p></div>"</script>';
     } else {
         while ($row = $carts->fetch_assoc()) {
             $sql = "SELECT * FROM cart WHERE CartID = '" . $row['CartID'] . "'";
