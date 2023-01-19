@@ -165,7 +165,7 @@ main i {
 .order_container {
     display: flex;
     border: 1px solid black;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     align-items: center;
     padding: 20px;
     border-radius: 8px;
@@ -179,4 +179,43 @@ main i {
     color: black;
     font-size: 30px;
     cursor: pointer;
+}
+
+.date_total_price {
+    flex: 2;
+    text-align: center;
+}
+
+.status {
+    flex: 2;
+    text-align: center;
+}
+
+.left_arrow {
+    flex: 1;
+    text-align: center;
+}
+
+.order_details {
+    grid-template-columns: 3fr 4fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.order_details_item_image {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.order_details_item_name {
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.order_details_item_price, .order_details_item_quantity {
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

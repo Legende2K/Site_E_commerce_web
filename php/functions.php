@@ -63,6 +63,11 @@ function removeURLParameter($keyParams)
   header("Location: " . $new_url);
 }
 
+function sqlToFrenchDate($sqlDate) {
+  $date = new DateTime($sqlDate);
+  return $date->format('d/m/Y');
+}
+
 
 include "functions/profil_functions.php";
 include "functions/categories_functions.php";
