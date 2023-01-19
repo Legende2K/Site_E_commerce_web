@@ -175,11 +175,11 @@ if (isset($_GET['category'])) {
   $i = 0;
   while ($row = $result->fetch_assoc()) {
     if ($nb == 1) {
-      $innerHTML = $innerHTML . '<form style="grid-column:2; grid-row:1;" id="' . $row["ItemID"] . '" class="product" onclick="goToItem(' . $row["ItemID"] . ')"><div class="image_product"><img src="images/' . $row['Picture'] .  '"></div><div class="content"><h4 class="name">' . $row['Name'] . '</h4><h2 class="price">' . $row['Price'] . '€</h2><h4 class="id_product">Ajouter au panier</h4></div></form>';
+      $innerHTML = $innerHTML . '<form style="grid-column:2; grid-row:1;" id="' . $row["ItemID"] . '" class="product" onclick="goToItem(' . $row["ItemID"] . ')"><div class="image_product"><img src="images/' . $row['Picture'] .  '"></div><div class="content"><h4 class="name">' . $row['Name'] . '</h4><h2 class="price">' . $row['Price'] . '€</h2><h4 class="id_product' . ($row["Quantity"]>0 ? "" : " disabled") . '">Ajouter au panier</h4></div></form>';
     } else if ($nb ==2) {
-      $innerHTML = $innerHTML . '<form style="grid-column:' . ($i%3 + 2) . '; grid-row:' . (floor($i/3) + 1) . ';" id="' . $row["ItemID"] . '" class="product" onclick="goToItem(' . $row["ItemID"] . ')"><div class="image_product"><img src="images/' . $row['Picture'] .  '"></div><div class="content"><h4 class="name">' . $row['Name'] . '</h4><h2 class="price">' . $row['Price'] . '€</h2><h4 class="id_product">Ajouter au panier</h4></div></form>';
+      $innerHTML = $innerHTML . '<form style="grid-column:' . ($i%3 + 2) . '; grid-row:' . (floor($i/3) + 1) . ';" id="' . $row["ItemID"] . '" class="product" onclick="goToItem(' . $row["ItemID"] . ')"><div class="image_product"><img src="images/' . $row['Picture'] .  '"></div><div class="content"><h4 class="name">' . $row['Name'] . '</h4><h2 class="price">' . $row['Price'] . '€</h2><h4 class="id_product' . ($row["Quantity"]>0 ? "" : " disabled") . '">Ajouter au panier</h4></div></form>';
     } else {
-      $innerHTML = $innerHTML . '<form style="grid-column:' . ($i%3 + 1) . '; grid-row:' . (floor($i/3) + 1) . ';" id="' . $row["ItemID"] . '" class="product" onclick="goToItem(' . $row["ItemID"] . ')"><div class="image_product"><img src="images/' . $row['Picture'] .  '"></div><div class="content"><h4 class="name">' . $row['Name'] . '</h4><h2 class="price">' . $row['Price'] . '€</h2><h4 class="id_product">Ajouter au panier</h4></div></form>';
+      $innerHTML = $innerHTML . '<form style="grid-column:' . ($i%3 + 1) . '; grid-row:' . (floor($i/3) + 1) . ';" id="' . $row["ItemID"] . '" class="product" onclick="goToItem(' . $row["ItemID"] . ')"><div class="image_product"><img src="images/' . $row['Picture'] .  '"></div><div class="content"><h4 class="name">' . $row['Name'] . '</h4><h2 class="price">' . $row['Price'] . '€</h2><h4 class="id_product' . ($row["Quantity"]>0 ? "" : " disabled") . '">Ajouter au panier</h4></div></form>';
     }
     $i++;
   }
@@ -196,7 +196,9 @@ if (isset($_GET['category'])) {
     id_products[i].addEventListener("click", function() {
       event.preventDefault();
       event.stopPropagation();
-      window.location.href = window.location.href + "&cart_id=" + id_products[i].parentElement.parentElement.id;
+      if (!id_products[i].classList.contains("disabled")) {
+        window.location.href = window.location.href + "&cart_id=" + id_products[i].parentElement.parentElement.id;
+      }
     });
   }
 </script>

@@ -33,8 +33,12 @@ main {
 
 .itemDescription{
     font-size: 25px;
-    overflow:auto;
 }
+
+.itemStock {
+    font-size: 20px;
+}
+
 .addItemCart{
     text-align: center;
     background-color: #663906;
@@ -45,4 +49,8 @@ main {
     cursor: pointer;
 }
 
-
+.disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
