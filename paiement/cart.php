@@ -67,7 +67,7 @@ if (isset($_SESSION["compte"])) {
         while ($row = $result->fetch_assoc()) {
             $sql = "SELECT * FROM item WHERE ItemID = '" . $row["ItemID"] . "'";
             $result2 = sql($sql);
-            $itemsString .= "<div style= 'display: flex; justify-content: center;grid-column:" . ($i%2 + 1) . "; grid-row:" . (floor($i/2) + 1) . ";'><li class='article' id='" . $result2["ItemID"] . "'><img src='../images/" . $result2["Picture"] . "'><p>" . mb_strtoupper($result2["Name"]) . "<br>" . $result2["Price"] . " €</p><div class='qte_article'><p>Quantité:</p><div class='qte_article_nb'><i class='fa-solid fa-minus'></i><p>" . $row["Quantity"] . "</p><i class='fa-solid fa-plus'></i></div></div><p class='total_price'>Prix total:<br>" . ($result2["Price"] * $row["Quantity"]) . "€</p><i class='fa-solid fa-xmark'></i></li></div>";
+            $itemsString .= "<div style= 'height: 100%; display: flex; justify-content: center;grid-column:" . ($i%2 + 1) . "; grid-row:" . (floor($i/2) + 1) . ";'><li class='article' id='" . $result2["ItemID"] . "'><img src='../images/" . $result2["Picture"] . "'><p>" . mb_strtoupper($result2["Name"]) . "<br>" . $result2["Price"] . " €</p><div class='qte_article'><p>Quantité:</p><div class='qte_article_nb'><i class='fa-solid fa-minus'></i><p>" . $row["Quantity"] . "</p><i class='fa-solid fa-plus'></i></div></div><p class='total_price'>Total:<br>" . ($result2["Price"] * $row["Quantity"]) . "€</p><i class='fa-solid fa-xmark'></i></li></div>";
             $i++;
             $total_articles += $result2["Price"] * $row["Quantity"];
         }

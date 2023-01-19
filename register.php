@@ -90,8 +90,8 @@ if (isset($_GET["email"]) && isset($_GET["password"]) && isset($_GET["name"]) &&
                         <label for="country">Pays</label>
                         <input type="text" id="country" name="country" required>
                     </div>
-                    <label for="phone">Numéro de téléphone (facultatif)</label>
-                    <input type="text" id="phone" name="phone">
+                    <label for="phone">Numéro de téléphone</label>
+                    <input type="number" id="phone" name="phone">
                     <input type="submit" value="S'inscrire">
                     <input type="button" value="Connexion" onclick="window.location.href = '../login.php';">
                 </form>
