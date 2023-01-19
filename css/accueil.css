@@ -7,7 +7,7 @@
 #partie_droite {
   z-index: 5;
   width: 15%;
-  height: 400px;
+  height: 70%;
   background-color: #804707;
 }
 
@@ -42,8 +42,8 @@
 
 /* Carousel */
 
-#carousel {
-  height: 400px;
+#carousel, #partieCentre{
+  height: 500px;
   top: 50%;
   overflow: hidden;
   width: 70%;
@@ -57,7 +57,6 @@
   height: 400px;
   display: flex;
   align-items: center;
-  cursor: pointer;
 }
 
 #carousel img {
@@ -89,6 +88,7 @@
   z-index: 5;
   left: 35%;
   transform: translateY(5%) translateX(-50%);
+  cursor: pointer;
 }
 
 #carousel div.prev img {
@@ -100,6 +100,7 @@
   left: 22.5%;
   transform: translateY(10%) translateX(-50%);
   opacity: 0.9;
+  cursor: pointer;
 }
 
 #carousel div.prevLeftSecond img {
@@ -110,12 +111,14 @@
   z-index: 10;
   left: 50%;
   transform: translateY(0px) translateX(-50%);
+  cursor: pointer;
 }
 
 #carousel div.next {
   z-index: 5;
   left: 65%;
   transform: translateY(5%) translateX(-50%);
+  cursor: pointer;
 }
 
 #carousel div.next img {
@@ -127,6 +130,7 @@
   left: 77.5%;
   transform: translateY(10%) translateX(-50%);
   opacity: 0.9;
+  cursor: pointer;
 }
 
 #carousel div.nextRightSecond img {
@@ -139,14 +143,13 @@
 
 .chevrons {
   position: absolute;
-  top: 50%;
   left: 50%;
   gap: 450px;
   opacity: 0.9;
   display: flex;
   justify-content: center;
-  z-index: 15;
-  transform: translateY(-350%) translateX(-50%);
+  z-index: 8;
+  transform: translateY(-520%) translateX(-50%);
 }
 
 .chevrons i {
@@ -196,9 +199,10 @@
 }
 
 .products_list {
-  margin: 100px auto;
+  margin: 50px auto;
   position: relative;
   width: 70%;
+  height: 400px;
   /* va devenir display: flex */
   display: none;
   flex-direction: row;
