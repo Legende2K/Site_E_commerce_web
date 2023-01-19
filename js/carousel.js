@@ -55,7 +55,4 @@ function moveToSelected(element) {
     moveToSelected('next');
   });
 
-  function checkSelected(elementId){
-    return document.getElementById(elementId).classList.contains('selected');
-  }
 

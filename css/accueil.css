@@ -7,7 +7,7 @@
 #partie_droite {
   z-index: 5;
   width: 15%;
-  height: 400px;
+  height: 70%;
   background-color: #804707;
 }
 
@@ -42,8 +42,8 @@
 
 /* Carousel */
 
-#carousel {
-  height: 400px;
+#carousel, #partieCentre{
+  height: 500px;
   top: 50%;
   overflow: hidden;
   width: 70%;
@@ -145,8 +145,8 @@
   opacity: 0.9;
   display: flex;
   justify-content: center;
-  z-index: 15;
-  transform: translateY(-350%) translateX(-50%);
+  z-index: 8;
+  transform: translateY(-520%) translateX(-50%);
 }
 
 .chevrons i {
@@ -196,9 +196,10 @@
 }
 
 .products_list {
-  margin: 100px auto;
+  margin: 50px auto;
   position: relative;
   width: 70%;
+  height: 400px;
   /* va devenir display: flex */
   display: none;
   flex-direction: row;

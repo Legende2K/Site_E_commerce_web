@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 18 jan. 2023 à 11:22
+-- Généré le : jeu. 19 jan. 2023 à 00:49
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -36,14 +36,15 @@ CREATE TABLE IF NOT EXISTS `cart` (
   PRIMARY KEY (`CartID`),
   KEY `CustomerID` (`CustomerID`),
   KEY `ItemID` (`ItemID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Déchargement des données de la table `cart`
 --
 
 INSERT INTO `cart` (`CartID`, `CustomerID`, `ItemID`, `Quantity`) VALUES
-(4, 1, 1, 1);
+(6, 1, 9, 1),
+(7, 1, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -94,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `item` (
   KEY `BuyerID` (`BuyerID`),
   KEY `SellerID` (`SellerID`),
   KEY `SubCategoryID` (`SubCategoryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Déchargement des données de la table `item`
@@ -104,10 +105,11 @@ INSERT INTO `item` (`ItemID`, `Name`, `SubCategoryID`, `Picture`, `Price`, `Desc
 (1, 'Lot de casseroles en inox', 1, 'casseroles.jpg', 49.9, 'Un lot de 7 casseroles en inox neuves', 15, NULL, 3.2, NULL),
 (2, 'Kit de poêles en téflon', 2, 'poeles.jpg', 39.9, 'Un kit de 3 poêles en téflon neuves', 7, NULL, 3.6, NULL),
 (3, 'Meuble de rangement noir', 14, 'tiroirs.png', 359.9, 'Meuble de rangement avec tiroirs. Design pixel perfect.', 1, NULL, 4.4, NULL),
-(4, 'Kit ustensiles dorés 1', 23, 'ustenciles_or.png', 19.9, 'Kit d\'ustensiles de cuisine en inox plaqué doré.', 30, NULL, 3.9, NULL),
-(5, 'Lot de casseroles en inox', 1, 'casseroles.jpg', 49.9, 'Un lot de 7 casseroles en inox neuves', 25, NULL, 3.2, NULL),
-(6, 'Kit ustensiles dorés 2', 23, 'ustenciles_or.png', 19.9, 'Kit d\'ustensiles de cuisine en inox plaqué doré.', 1, NULL, 3.9, NULL),
-(7, 'Kit ustensiles dorés 3', 23, 'ustenciles_or.png', 19.9, 'Kit d\'ustensiles de cuisine en inox plaqué doré.', 0, NULL, 3.9, NULL);
+(4, 'Kit ustensiles dorés ', 23, 'ustenciles_or.png', 19.9, 'Kit d\'ustensiles de cuisine en inox plaqué doré.', 30, NULL, 3.9, NULL),
+(9, 'Kit ustensiles inox', 23, 'ustencils_metal.jpg', 16.99, 'Kit d\'ustensiles de cuisine en inox ', 7, NULL, 2.6, NULL),
+(10, 'Kit ustensiles bois', 26, 'ustencils_bois.jpg', 21.99, 'Kit très complet d\'ustensiles de cuisine en bois', 0, NULL, 1.2, NULL),
+(11, 'Kit ustensiles silicone', 25, 'ustenciles_silicone.png', 22.9, 'Kit d\'ustensiles de cuisine en silicone', 10, NULL, 5, NULL),
+(12, 'Kit ustensiles inox 2', 23, 'ustensiles-cuisine-3.png', 17.9, 'Un kit d\'ustensiles plutôt pas dégueu', 2, NULL, 4.2, NULL);
 
 -- --------------------------------------------------------
 
