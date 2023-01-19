@@ -1,6 +1,15 @@
 <?php
 include "../php/core.php";
 include "../php/functions.php";
+//verifier si le panier est vide
+$sql = "SELECT COUNT(*) FROM `totalcart` WHERE `OrderID` = " . $_SESSION["order"];
+$result = sqlCount($sql);
+if ($result == 0) {
+    echo "<script>alert('Votre panier est vide !')</script>";
+    header("Location: ../index.php");
+    exit();
+}
+
 if (isset($_GET["validate"])) {
     //passer la statut unpaid à delivering
     $sql = "UPDATE `orders` SET `Status` = 'delivering' WHERE `OrderID` = " . $_SESSION["order"];
@@ -30,7 +39,7 @@ if (isset($_GET["validate"])) {
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/paiement.css">
-    <title>Paiement - Site E-Commerce</title>
+    <title>Paiement - Kittools</title>
 </head>
 
 <body>
