@@ -55,6 +55,7 @@ main {
     grid-gap: 30px;
     padding: 30px;
     align-items: center;
+    grid-template-columns: 1fr 1fr;
 }
 
 #articles p {
@@ -78,8 +79,8 @@ main {
 }
 
 .article img {
-    max-width: 100px;
-    max-height: 100px;
+    max-height: 150px;
+    max-width: 150px;
 }
 
 .qte_article {
@@ -97,7 +98,7 @@ main {
 
 .article i {
     cursor: pointer;
-    font-size: 20;
+    font-size: 25;
 }
 
 .total_price {
