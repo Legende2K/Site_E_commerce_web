@@ -44,7 +44,7 @@ if (isset($_SESSION["compte"])) {
     $sql = "SELECT * FROM cart WHERE CustomerID = '" . $_SESSION['compte'] . "'";
     $result = $mysqli->query($sql);
     $itemsString = "";
-    echo '<script>document.querySelector("#cart_count").innerHTML = "' . $result->num_rows . '"</script>';
+    $nb_produit = 0;
     $nb = $result->num_rows;
     if ($nb == 0) {
         echo '<script>document.querySelector("#cart_items").innerHTML = "<p style=\'width: max-content\'>Aucun item dans le panier</p>"</script>';
@@ -52,11 +52,13 @@ if (isset($_SESSION["compte"])) {
         while ($row = $result->fetch_assoc()) {
             $sql = "SELECT * FROM item WHERE ItemID = '" . $row["ItemID"] . "'";
             $result2 = sql($sql);
+            $nb_produit += $row["Quantity"];
             $itemsString .= "<li class='cart_item' id='" . $result2["ItemID"] . "'><img src='../images/" . $result2["Picture"] . "'><div class='text-container'><p>" . mb_strtoupper($result2["Name"]) . "</p><span>10,99€</span></div><p class='qte_item'>Qte : " . $row["Quantity"] . "</p><i class='fa-solid fa-xmark deleted_button'></i></li>";
         }
         $itemsString .= "<div id='pay_button'><div onclick='goToCart()'><p>Payez</p><i class='fa-solid fa-arrow-right'></i></div></div>";
         echo '<script>document.querySelector("#cart_items").innerHTML = "' . $itemsString . '"</script>';
     }
+    echo '<script>document.querySelector("#cart_count").innerHTML = "' . $nb_produit . '"</script>';
 } else {
     echo '<script>document.querySelector("#cart_items").innerHTML = "<p style=\'width: max-content\'>Vous n\'êtes pas connecté</p>"</script>';
 }

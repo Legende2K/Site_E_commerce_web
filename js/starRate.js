@@ -1,5 +1,4 @@
 function pushStars(nb) {
-    console.log(nb);
     nb = Math.round(nb * 2) / 2;
     var solidStars = Math.floor(nb); 
     var emptyStars = 5 - solidStars; 
