@@ -39,7 +39,7 @@ function showSubcaterory() {
     }
     var productsList = document.getElementsByClassName("products_list");
     for (var j = 0; j < productsList.length; j++) {
-        productsList[j].style.display = "flex";
+        productsList[j].style.display = "grid";
     }
 }
 
