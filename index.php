@@ -62,24 +62,32 @@ if (isset($_SESSION["error_cart_message"])) {
           <?php } ?>
         </div>
       </div>
-      <div id="carousel">
-        <div id="picture1" class="hideLeft"></div>
+      <div id=partieCentre >
+        <div id="carousel">
+          <div id="picture1" class="hideLeft"></div>
 
-        <div id="picture2" class="prevLeftSecond"></div>
+          <div id="picture2" class="prevLeftSecond"></div>
 
-        <div id="picture3" class="prev"></div>
+          <div id="picture3" class="prev"></div>
 
-        <div id="picture4" class="selected"></div>
+          <div id="picture4" class="selected"></div>
 
-        <div id="picture5" class="next"></div>
+          <div id="picture5" class="next"></div>
 
-        <div id="picture6" class="nextRightSecond"></div>
+          <div id="picture6" class="nextRightSecond"></div>
 
-        <div id="picture7" class="hideRight"></div>
+          <div id="picture7" class="hideRight"></div>
+        </div>
+        <div class="products_list"></div>
+        <div id="chevrons_position">
+          <div class="chevrons">
+            <i id="prev" class="fa-solid fa-chevron-left"></i>
+            <i id="next" class="fa-solid fa-chevron-right"></i>
+          </div>
+        </div>
       </div>
-      <div class="products_list">
-
-      </div>
+      
+      
       <div id="partie_droite">
           <span class="bandeau"> - Kittools - Kittools - Kittools - Kittools&nbsp;</span>
           <span class="bandeau"> - Kittools - Kittools - Kittools - Kittools&nbsp;</span>
@@ -87,27 +95,21 @@ if (isset($_SESSION["error_cart_message"])) {
 
     </div>
 
-    <div id="chevrons_position">
-      <div class="chevrons">
-        <i id="prev" class="fa-solid fa-chevron-left"></i>
-        <i id="next" class="fa-solid fa-chevron-right"></i>
-      </div>
-    </div>
+    
   </main>
   <?php include "php/components/footer.php"; ?>
 </body>
 <script src="../js/category.js"></script>
 <?php
-  $sql="SELECT COUNT(*) as total FROM item";
-  $nbItems = sql($sql);
-  $total_rows = $nbItems['total'];
-  $random_ids = array();
-  while (count($random_ids) < 7) {
-    $random_id1 = rand(1, $total_rows);
-    if (!in_array($random_id1, $random_ids)) {
-      array_push($random_ids, $random_id1);
-    }
+  $requete = "SELECT ItemID FROM item";
+  $result = $mysqli->query($requete);
+  $nb = $result->num_rows;
+  $item_ids = array();
+  while ($row = $result->fetch_assoc()) {
+      $item_ids[] = $row['ItemID'];
   }
+  shuffle($item_ids);
+  $random_ids = array_slice($item_ids, 0, 7);
   $random_ids_string = implode(",", $random_ids);
   $result = $mysqli->query("SELECT Picture, ItemID FROM item WHERE ItemID IN ($random_ids_string)");
   for ($i = 1; $i <= 7; $i++) {
