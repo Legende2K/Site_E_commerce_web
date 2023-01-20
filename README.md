@@ -8,9 +8,7 @@ Ce projet est un projet de l'[ESEO](https://eseo.fr/). La section ici présente 
 
 [Louis LEGENDRE](https://github.com/Legende2K)
 
-## Co Authors
-
-[Partie Java](https://github.com/Zilba26/Site_E_Commerce_Java) (admin) : 
+## [Partie Java](https://github.com/Zilba26/Site_E_Commerce_Java) (admin) : 
 
 [Nathan LAFROGNE](https://github.com/nathanlafrogne)
 
