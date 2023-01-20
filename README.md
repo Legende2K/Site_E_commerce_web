@@ -12,4 +12,4 @@ Louis LEGENDRE
 
 Nathan LAFROGNE
 
-Maxence LE DU
+[Maxence LE DU](https://github.com/Maaax85)
