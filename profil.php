@@ -230,7 +230,7 @@ if (isset($_SESSION["compte"])) {
                         <div class="order_container">
                             <div class="date_total_price">
                                 <p>Commande <?php echo ($order["Status"] == "unpaid" ? " en cours" : "du " . sqlToFrenchDate($order["Date"])) ?></p>
-                                <p>Total : 50€</p>
+                                <p id="total_price<?php echo $order["OrderID"] ?>">Total : 50€</p>
                             </div>
                             <div class="status">
                                 <p><?php if ($order["Status"] == "unpaid") {
@@ -255,12 +255,15 @@ if (isset($_SESSION["compte"])) {
                         $carts = $mysqli->query($sql);
                         $innerHTMLString = "<p style='grid-row: 1;grid-column:3'>Prix unitaire</p><p style='grid-row: 1;grid-column:4'>Quantité</p><p style='grid-row: 1;grid-column:5'>Total</p>";
                         $i = 0;
+                        $total_price = 0;
                         while ($cart = $carts->fetch_assoc()) {
                             $sql = "SELECT * FROM item WHERE ItemID = " . $cart["ItemID"];
                             $item = $mysqli->query($sql)->fetch_assoc();
                             $innerHTMLString .= "<img style='grid-row: ".($i + 2).";grid-column:1' class='order_details_item_image' src='../images/" . $item["Picture"] . "'><div style='grid-row: ".($i + 2).";grid-column:2' class='order_details_item_name'><p>" . $item["Name"] . "</p></div><div style='grid-row: ".($i + 2).";grid-column:3' class='order_details_item_price'><p>" . $item["Price"] . "€</p></div><div style='grid-row: ".($i + 2).";grid-column:4' class='order_details_item_quantity'><p>" . $cart["Quantity"] . "</p></div><div style='grid-row: ".($i + 2).";grid-column:5' class='order_details_item_price'><p>" . ($item["Price"] * $cart["Quantity"]) . "€</p></div>";
                             $i++;
+                            $total_price += $item["Price"] * $cart["Quantity"];
                         }
+                        echo "<script>document.querySelector('#total_price" . $order['OrderID'] . "').innerHTML = \"Total : " . $total_price . "€\";</script>";
                         echo "<script>document.querySelector('#order" . $order['OrderID'] . "').innerHTML = \"" . $innerHTMLString . "\";</script>";
                     } ?>
                 </div>
