@@ -6,6 +6,10 @@ Basile LEBAUDY
 
 Louis LEGENDRE
 
+## Co Authors
+
+[Partie Java](https://github.com/Zilba26/Site_E_Commerce_Java) (admin) : 
+
 Nathan LAFROGNE
 
 Maxence LE DU
