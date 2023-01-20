@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 19 jan. 2023 à 20:24
+-- Généré le : ven. 20 jan. 2023 à 09:02
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -149,8 +149,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 --
 
 INSERT INTO `orders` (`OrderID`, `UserID`, `Status`, `Date`) VALUES
-(1, 2, 'unpaid', '0000-00-00'),
-(2, 3, 'unpaid', '0000-00-00');
+(2, 3, 'unpaid', '2023-01-19');
 
 -- --------------------------------------------------------
 
@@ -240,7 +239,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `PostalCode` varchar(50) NOT NULL,
   `City` varchar(50) NOT NULL,
   `Country` varchar(50) NOT NULL,
-  `Phone` int NOT NULL,
+  `Phone` varchar(20) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Password` varchar(50) NOT NULL,
   `admin` tinyint(1) DEFAULT '0',
@@ -252,8 +251,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`UserID`, `FirstName`, `Name`, `BirthDate`, `Address1`, `Address2`, `PostalCode`, `City`, `Country`, `Phone`, `Email`, `Password`, `admin`) VALUES
-(2, 'a', 'a', '2023-01-03', 'a', '', 'a', 'a', 'a', 0, 'a@a.a', 'a', 0),
-(3, 'louis', 'legendre', '2000-03-08', '1 square g', 'appart 54658', '49000', 'Angers', 'France', 707070707, 'louis@gmail.com', 'network', 1);
+(3, 'louis', 'legendre', '2000-03-08', '1 square g', 'appart 54658', '49000', 'Angers', 'France', '707070707', 'louis@gmail.com', 'network', 1);
 
 --
 -- Contraintes pour les tables déchargées
