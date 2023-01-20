@@ -1,6 +1,6 @@
 # Kittools
 
-Ce projet est un projet de l'école à l'ESEO. Le projet présente la partie web, un autre représente une autre application (en Java) pour la partie administrateur
+Ce projet est un projet de l'[ESEO](https://eseo.fr/). Le projet présente la partie web, un autre représente une autre application (en Java) pour la partie administrateur
 
 ## Authors
 
