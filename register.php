@@ -27,7 +27,7 @@ if (isset($_GET["email"]) && isset($_GET["password"]) && isset($_GET["name"]) &&
         insert($sql);
         $_SESSION["compte"] = $mysqli -> insert_id;
 
-        $sql = "INSERT INTO Orders (UserId) VALUES (" . $_SESSION["compte"] . ")";
+        $sql = "INSERT INTO Orders (UserId, Date) VALUES (" . $_SESSION["compte"] . ", CURRENT_TIMESTAMP)";
         insert($sql);
         $_SESSION["order"] = $mysqli -> insert_id;
 
@@ -85,7 +85,7 @@ if (isset($_GET["email"]) && isset($_GET["password"]) && isset($_GET["name"]) &&
                             <input type="text" id="postalCode" name="postalCode" required>
                         </div>
                         <div class="column_container">
-                            <label for="city">Pays</label>
+                            <label for="city">Ville</label>
                             <input type="text" id="city" name="city" required>
                         </div>
                     </div>
@@ -94,7 +94,7 @@ if (isset($_GET["email"]) && isset($_GET["password"]) && isset($_GET["name"]) &&
                         <input type="text" id="country" name="country" required>
                     </div>
                     <label for="phone">Numéro de téléphone</label>
-                    <input type="number" id="phone" name="phone" required>
+                    <input type="text" id="phone" name="phone" onkeypress="return isNumberKey(event)" required>
                     <input type="submit" value="S'inscrire">
                     <input type="button" value="Connexion" onclick="window.location.href = '../login.php';">
                 </form>
@@ -103,5 +103,13 @@ if (isset($_GET["email"]) && isset($_GET["password"]) && isset($_GET["name"]) &&
     </main>
     <?php include "php/components/footer.php"; ?>
 </body>
+<script>
+  function isNumberKey(evt) {
+    let charCode = (evt.which) ? evt.which : event.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+  }
+</script>
 
 </html>
