@@ -200,7 +200,7 @@ if (isset($_SESSION["compte"])) {
                         </div>
                         <div id="city_container" class="input_label">
                             <label for="city">Ville</label>
-                            <input type="text" id="city" value="Ville">
+                            <input type="text" id="city" value="<?php echo $_COMPTE["City"] ?>">
                         </div>
                     </div>
                     <div id="country_container" class="input_label">
