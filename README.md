@@ -4,7 +4,7 @@
 
 [Basile LEBAUDY](https://github.com/Zilba26)
 
-Louis LEGENDRE
+[Louis LEGENDRE](https://github.com/Legende2K)
 
 ## Co Authors
 
