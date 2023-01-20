@@ -1,4 +1,4 @@
-# Kittols
+# Kittools
 
 Ce projet est un projet de l'école à l'ESEO. Le projet présente la partie web, un autre représente une autre application (en Java) pour la partie administrateur
 
