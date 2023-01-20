@@ -2,7 +2,7 @@
 
 ## Authors
 
-Basile LEBAUDY
+[Basile LEBAUDY](https://github.com/Zilba26)
 
 Louis LEGENDRE
 
