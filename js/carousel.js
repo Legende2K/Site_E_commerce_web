@@ -22,6 +22,10 @@ function moveToSelected(element) {
   
     $(nextSecond).nextAll().removeClass().addClass('hideRight');
     $(prevSecond).prevAll().removeClass().addClass('hideLeft');
+
+    $('#carousel div:not(.hideLeft):not(.hideRight)').click(function() {
+      moveToSelected($(this));
+    });
   
   }
   function checkSelected(elementId){
