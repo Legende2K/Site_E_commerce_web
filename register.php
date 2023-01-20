@@ -27,7 +27,7 @@ if (isset($_GET["email"]) && isset($_GET["password"]) && isset($_GET["name"]) &&
         insert($sql);
         $_SESSION["compte"] = $mysqli -> insert_id;
 
-        $sql = "INSERT INTO Orders (UserId) VALUES (" . $_SESSION["compte"] . ")";
+        $sql = "INSERT INTO Orders (UserId, Date) VALUES (" . $_SESSION["compte"] . ", CURRENT_TIMESTAMP)";
         insert($sql);
         $_SESSION["order"] = $mysqli -> insert_id;
 
@@ -85,7 +85,7 @@ if (isset($_GET["email"]) && isset($_GET["password"]) && isset($_GET["name"]) &&
                             <input type="text" id="postalCode" name="postalCode" required>
                         </div>
                         <div class="column_container">
-                            <label for="city">Pays</label>
+                            <label for="city">Ville</label>
                             <input type="text" id="city" name="city" required>
                         </div>
                     </div>
