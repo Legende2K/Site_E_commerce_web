@@ -94,7 +94,7 @@ if (isset($_GET["email"]) && isset($_GET["password"]) && isset($_GET["name"]) &&
                         <input type="text" id="country" name="country" required>
                     </div>
                     <label for="phone">Numéro de téléphone</label>
-                    <input type="number" id="phone" name="phone" required>
+                    <input type="text" id="phone" name="phone" onkeypress="return isNumberKey(event)" required>
                     <input type="submit" value="S'inscrire">
                     <input type="button" value="Connexion" onclick="window.location.href = '../login.php';">
                 </form>
@@ -103,5 +103,13 @@ if (isset($_GET["email"]) && isset($_GET["password"]) && isset($_GET["name"]) &&
     </main>
     <?php include "php/components/footer.php"; ?>
 </body>
+<script>
+  function isNumberKey(evt) {
+    let charCode = (evt.which) ? evt.which : event.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+  }
+</script>
 
 </html>
